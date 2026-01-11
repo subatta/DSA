@@ -24,20 +24,26 @@
 ## **Canonical Skeletons by Pattern**
 
 ### 1. Sliding Window
+Define 'window' and 'invalid window condition'
 ```csharp
 int left = 0;
-int maxLen = 0;
+// Declare and define window state as required
+// Declare and define result data structure
 
-for (int right = 0; right < arr.Length; right++) {
-    // include arr[right]
+for (int right = 0; right < arr.Length; right++) 
+{
+    // Use nums[right]
+
+    // Shrink window from left if condition violated
     while (window invalid) {
-        // shrink window from left
+        // Use nums[left] to update window state
         left++;
     }
-    // update result
-    maxLen = Math.Max(maxLen, right - left + 1);
+
+    // Update result based on window state
 }
-return maxLen;
+
+// return result;
 ```
 ### 2. Two Pointers
 ```csharp

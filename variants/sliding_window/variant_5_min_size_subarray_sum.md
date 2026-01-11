@@ -4,6 +4,8 @@
 **Difficulty:** Medium  
 **LeetCode:** #209
 
+> **⚠️ Important Constraint:** This variant works ONLY for **positive integers**. For arrays with negative integers, the sliding window approach fails because removing elements doesn't guarantee sum decrease. See [Variant 5b: With Negative Integers](variant_5b_min_size_subarray_sum_negative.md) for the Prefix Sum + Monotonic Deque solution.
+
 ---
 
 ## Problem Statement
@@ -292,6 +294,7 @@ This is **minimization sliding window** - we shrink **aggressively** while condi
 ## **Related Problems:**
 - [Subarray Product Less Than K](variant_4_subarray_product_less_k.md) - Counting variant with product
 - [Longest Substring Without Repeating Characters](variant_1_longest_substring_no_repeat.md) - Maximization instead of minimization
+- [Minimum Size Subarray Sum (With Negative Integers)](variant_5b_min_size_subarray_sum_negative.md) - Requires Prefix Sum + Monotonic Deque
 - Maximum Size Subarray Sum Equals K - Hash map approach for exact sum
 
 ## **Tags:**

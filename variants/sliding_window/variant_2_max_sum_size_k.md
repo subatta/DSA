@@ -16,7 +16,28 @@ Given an array of integers `nums` and an integer `k`, find the maximum sum of an
 
 ---
 
-## **Step 1: Derive Full State Space from Problem**
+##**Step 1: Derive Full State Space from Problem**
+
+### **Problem Visualization:**
+```
+Input: nums = [2, 1, 5, 1, 3, 2], k = 3
+
+All size-3 windows:
+
+Window 1: [2, 1, 5] sum = 8
+           ┃━━━━━┃
+           
+ Window 2:    [1, 5, 1] sum = 7
+                 ┃━━━━━┃
+
+  Window 3:       [5, 1, 3] sum = 9 ✓ (maximum)
+                     ┃━━━━━┃
+
+   Window 4:          [1, 3, 2] sum = 6
+                         ┃━━━━━┃
+
+Strategy: Slide window right, remove left element, add right element
+```
 
 ### **Problem Analysis:**
 - Find **maximum sum** among all **size-k contiguous subarrays**

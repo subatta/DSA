@@ -9,6 +9,10 @@
 ### 🎯 [Pattern Recognition Guide](pattern_recognition_guide.md)
 **Start here!** Learn how to identify which pattern applies to any problem based on keywords, constraints, and problem structure.
 
+### 📑 Multi-Dimensional Indexes
+Explore problems organized by different perspectives:
+- **[By State Space](indexes/by_state_space.md)** - Group problems by their underlying state space structure (O(n²), O(2ⁿ), etc.) and optimization strategies
+
 ### ✅ [Checklist](checklist.md)
 Quick reference checklist for problem-solving.
 

@@ -185,22 +185,23 @@ When we find duplicate at `right`, instead of starting fresh from `start+1`, we 
 
 ### **Canonical Skeleton Applied:**
 ```csharp
-int SlidingWindowTemplate(int[] nums, int kOrCondition) {
+int SlidingWindowTemplate(int[] nums, int kOrCondition) 
+{
     int left = 0;
-    int result = 0;
     var windowState = new Dictionary<int,int>();
+    int result = 0;
 
-    for (int right = 0; right < nums.Length; right++) {
-        // Update windowState with nums[right]
+    for (int right = 0; right < nums.Length; right++) 
+    {
+        // Use nums[right]
         
-        // Shrink window if condition violated
-        while (ConditionViolated(windowState)) {
+        // Shrink window from left if condition violated
+        while (window invalid) {
             // Update windowState by removing nums[left]
             left++;
         }
 
-        // Update result based on current window
-        result = UpdateResult(result, windowState);
+        // Update result
     }
 
     return result;
