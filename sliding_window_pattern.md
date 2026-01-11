@@ -40,44 +40,44 @@ for (int right = 0; right < arr.Length; right++)
 
 ## Pattern Variants:
 
-This pattern has 7 main variants organized by window type and auxiliary data structures:
-
-### Variable-Size Window (Pure Sliding Window):
-1. **[Longest Substring Without Repeating Characters](variants/sliding_window/variant_1_longest_substring_no_repeat.md)** - LeetCode #3, Medium
-   - Find longest substring with all distinct characters
-   - State Space: O(n²) substrings → O(n) with hash set tracking
-   
-4. **[Subarray Product Less Than K](variants/sliding_window/variant_4_subarray_product_less_k.md)** - LeetCode #713, Medium
-   - Count subarrays where product < k
-   - Uses counting formula: `right - left + 1`
-   
-5. **[Minimum Size Subarray Sum](variants/sliding_window/variant_5_min_size_subarray_sum.md)** - LeetCode #209, Medium
-   - Find shortest subarray with sum ≥ target (positive integers only)
-   - "Grow-then-shrink" minimization pattern
-
-5b. **[Minimum Size Subarray Sum (With Negative Integers)](variants/sliding_window/variant_5b_min_size_subarray_sum_negative.md)** - Hard
-   - Same problem but handles negative integers
-   - **Hybrid**: Prefix Sum + Monotonic Deque (sliding window fails!)
-   - Shows when sliding window doesn't work
+This pattern has 8 main variants organized by window type and auxiliary data structures:
 
 ### Fixed-Size Window:
-2. **[Maximum Sum Subarray of Size K](variants/sliding_window/variant_2_max_sum_size_k.md)** - Easy
+1. **[Maximum Sum Subarray of Size K](variants/sliding_window/variant_2_max_sum_size_k.md)** - Easy
    - Find maximum sum in fixed window of size k
    - State Space: O(n) windows (n-k+1)
    - Incremental update: O(1) per slide vs O(k) recalculation
 
+### Variable-Size Window (Pure Sliding Window):
+2. **[Longest Substring Without Repeating Characters](variants/sliding_window/variant_1_longest_substring_no_repeat.md)** - LeetCode #3, Medium
+   - Find longest substring with all distinct characters
+   - State Space: O(n²) substrings → O(n) with hash set tracking
+   
+3. **[Subarray Product Less Than K](variants/sliding_window/variant_4_subarray_product_less_k.md)** - LeetCode #713, Medium
+   - Count subarrays where product < k
+   - Uses counting formula: `right - left + 1`
+   
+4. **[Minimum Size Subarray Sum](variants/sliding_window/variant_5_min_size_subarray_sum.md)** - LeetCode #209, Medium
+   - Find shortest subarray with sum ≥ target (positive integers only)
+   - "Grow-then-shrink" minimization pattern
+
+5. **[Minimum Size Subarray Sum (With Negative Integers)](variants/sliding_window/variant_5b_min_size_subarray_sum_negative.md)** - Hard
+   - Same problem but handles negative integers
+   - **Hybrid**: Prefix Sum + Monotonic Deque (sliding window fails!)
+   - Shows when sliding window doesn't work
+
 ### Hybrid Patterns (Sliding Window + Auxiliary Data Structure):
-3. **[Minimum Window Substring](variants/sliding_window/variant_3_min_window_substring.md)** ⭐ - LeetCode #76, Hard
+6. **[Minimum Window Substring](variants/sliding_window/variant_3_min_window_substring.md)** ⭐ - LeetCode #76, Hard
    - Shortest substring containing all target characters
    - **Hybrid**: Sliding Window + Hash Map (frequency tracking)
    - Contract-while-valid strategy
    
-6. **[Sliding Window Maximum](variants/sliding_window/variant_6_sliding_window_maximum.md)** ⭐ - LeetCode #239, Hard
+7. **[Sliding Window Maximum](variants/sliding_window/variant_6_sliding_window_maximum.md)** ⭐ - LeetCode #239, Hard
    - Maximum value in each fixed-size window
    - **Hybrid**: Sliding Window + Monotonic Deque
    - O(n×k) → O(n) via dominated element removal
    
-7. **[Longest Substring with K Distinct Characters](variants/sliding_window/variant_7_k_distinct_characters.md)** ⭐ - LeetCode #340, Medium
+8. **[Longest Substring with K Distinct Characters](variants/sliding_window/variant_7_k_distinct_characters.md)** ⭐ - LeetCode #340, Medium
    - Longest substring with ≤ k distinct characters
    - **Hybrid**: Sliding Window + Hash Map (frequency counting)
 
@@ -111,9 +111,10 @@ This pattern has 7 main variants organized by window type and auxiliary data str
 - [Monotonic Stack](monotonic_stack_pattern.md) - Related to monotonic deque in variant #6
 
 ## Practice Progression:
-1. Start with **Variant #2** (fixed window, easiest)
-2. Progress to **Variant #1, #4, #5** (variable window, core pattern)
-3. Master **Variant #3, #6, #7** (hybrid patterns, interview favorites)
+1. Start with **Variant #1** (fixed window, easiest)
+2. Progress to **Variants #2, #3, #4** (variable window, core pattern)
+3. Master **Variants #6, #7, #8** (hybrid patterns, interview favorites)
+4. Study **Variant #5** (edge case showing when sliding window fails)
 
 ---
 

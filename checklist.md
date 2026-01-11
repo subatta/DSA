@@ -24,135 +24,231 @@
 ## **Canonical Skeletons by Pattern**
 
 ### 1. Sliding Window
-Define 'window' and 'invalid window condition'
+Define 'window state' and 'invalid condition'
 ```csharp
 int left = 0;
-// Declare and define window state as required
-// Declare and define result data structure
+// Initialize: window state, result
 
-for (int right = 0; right < arr.Length; right++) 
-{
-    // Use nums[right]
-
-    // Shrink window from left if condition violated
-    while (window invalid) {
-        // Use nums[left] to update window state
+for (int right = 0; right < n; right++) {
+    // Expand: add right element to window
+    
+    while (/* window invalid */) {
+        // Shrink: remove left element from window
         left++;
     }
-
-    // Update result based on window state
+    
+    // Update: result from [left, right] window
 }
-
-// return result;
 ```
+
 ### 2. Two Pointers
+Define pointer movement based on condition
 ```csharp
-int left = 0, right = arr.Length - 1;
+int left = 0, right = n - 1;
+
 while (left < right) {
-    int sum = arr[left] + arr[right];
-    if (sum == target) return true;
-    else if (sum < target) left++;
+    // Evaluate: current state from left & right
+    
+    if (/* target condition */) {
+        // Process: record or return
+    }
+    
+    // Move: adjust pointers by condition
+    if (/* condition */) left++;
     else right--;
 }
-return false;
 ```
-### 3. Fast & Slow Pointers
-```csharp
-bool HasCycle(ListNode head) {
-    ListNode slow = head, fast = head;
-    while (fast != null && fast.next != null) {
-        slow = slow.next;           // Move 1 step
-        fast = fast.next.next;      // Move 2 steps
-        if (slow == fast) return true;
-    }
-    return false;
-}
-```
-### 3. Fast & Slow Pointers
-```csharp
-bool HasCycle(ListNode head) {
-    ListNode slow = head, fast = head;
-    while (fast != null && fast.next != null) {
-        slow = slow.next;           // Move 1 step
-        fast = fast.next.next;      // Move 2 steps
-        if (slow == fast) return true;
-    }
-    return false;
-}
-```
-### 4. Prefix Sum / Subarray
-```csharp
-var sumFreq = new Dictionary<int,int>() { {0,1} };
-int prefixSum = 0, count = 0;
 
-for(int i=0; i<arr.Length; i++){
-    prefixSum += arr[i];
-    int diff = prefixSum - target;
-    if(sumFreq.ContainsKey(diff)) count += sumFreq[diff];
-    sumFreq[prefixSum] = sumFreq.GetValueOrDefault(prefixSum) + 1;
-}
-return count;
-```
-### 5. Hash Map / Frequency Counting
+### 3. Fast & Slow Pointers
+Fast moves 2x speed, slow moves 1x
 ```csharp
-var freq = new Dictionary<char,int>();
-foreach(char c in str1) freq[c] = freq.GetValueOrDefault(c)+1;
-foreach(char c in str2){
-    if(!freq.ContainsKey(c) || freq[c]==0) return false;
-    freq[c]--;
-}
-return true;
-```
-### 6. Backtracking / DFS
-```csharp
-void Backtrack(List<int> curr, int start){
-    result.Add(new List<int>(curr)); // record state
-    for(int i=start; i<n; i++){
-        curr.Add(nums[i]);
-        Backtrack(curr, i+1); // move forward
-        curr.RemoveAt(curr.Count-1); // undo
+Node slow = start, fast = start;
+
+while (fast != null && fast.next != null) {
+    slow = slow.next;        // 1x speed
+    fast = fast.next.next;   // 2x speed
+    
+    if (slow == fast) {
+        // Meet point: cycle or target found
     }
 }
 ```
+
+### 4. Hash Map / Frequency Counting
+Track occurrences or mappings
+```csharp
+var map = new Dictionary<TKey, TValue>();
+
+foreach (var item in collection) {
+    // Build: map[key] = map.GetValueOrDefault(key) + 1
+}
+
+foreach (var kvp in map) {
+    // Process: use kvp.Key, kvp.Value
+}
+```
+
+### 5. Prefix Sum
+Track cumulative values with map
+```csharp
+var map = new Dictionary<int, int> { {0, 1} };
+int prefix = 0, result = 0;
+
+for (int i = 0; i < n; i++) {
+    prefix += arr[i];
+    
+    // Query: check if (prefix - target) exists
+    if (map.ContainsKey(prefix - target)) {
+        result += map[prefix - target];
+    }
+    
+    // Store: current prefix
+    map[prefix] = map.GetValueOrDefault(prefix) + 1;
+}
+```
+
+### 6. Monotonic Stack
+Maintain monotonic order (increasing/decreasing)
+```csharp
+var stack = new Stack<int>();
+
+for (int i = 0; i < n; i++) {
+    while (stack.Count > 0 && /* violates monotonic property */) {
+        var popped = stack.Pop();
+        // Process: popped element found its boundary
+    }
+    
+    stack.Push(i);
+}
+```
+
 ### 7. Binary Search
+Template for sorted search space
 ```csharp
-int left=0, right=arr.Length-1;
-while(left <= right){
-    int mid = left + (right-left)/2;
-    if(arr[mid]==target) return mid;
-    else if(arr[mid]<target) left=mid+1;
-    else right=mid-1;
+int left = 0, right = n - 1;
+
+while (left <= right) {
+    int mid = left + (right - left) / 2;
+    
+    if (/* found target */) return mid;
+    else if (/* search right */) left = mid + 1;
+    else right = mid - 1;
 }
-return -1;
 ```
+
 ### 8. Top K Elements
+Min-heap for K largest, max-heap for K smallest
 ```csharp
-int FindKthLargest(int[] nums, int k) {
-    var minHeap = new PriorityQueue<int, int>();
-    foreach (int num in nums) {
-        minHeap.Enqueue(num, num);
-        if (minHeap.Count > k) minHeap.Dequeue();
+var heap = new PriorityQueue<T, int>();
+
+foreach (var item in collection) {
+    heap.Enqueue(item, priority);
+    
+    if (heap.Count > k) {
+        heap.Dequeue();
     }
-    return minHeap.Peek(); // Kth largest
+}
+// Heap contains top K elements
+```
+
+### 9. Intervals / Merge
+Sort by start, merge overlapping
+```csharp
+Array.Sort(intervals, (a, b) => a.start.CompareTo(b.start));
+var result = new List<Interval>();
+
+foreach (var curr in intervals) {
+    if (result.Count == 0 || result.Last().end < curr.start) {
+        result.Add(curr);
+    } else {
+        // Merge: extend end boundary
+        result.Last().end = Math.Max(result.Last().end, curr.end);
+    }
 }
 ```
-### 9. Heap / Priority Queue
+
+### 10. Heap / Priority Queue
+Process elements by priority
 ```csharp
-var pq = new PriorityQueue<int>();
-foreach(var val in arr) pq.Enqueue(val);
-while(pq.Count > 0){
-    var top = pq.Dequeue();
-    // process top
+var heap = new PriorityQueue<T, int>();
+
+foreach (var item in collection) {
+    heap.Enqueue(item, priority);
+}
+
+while (heap.Count > 0) {
+    var item = heap.Dequeue();
+    // Process: highest/lowest priority first
 }
 ```
-### 10. Dynamic Programming
+
+### 11. Greedy
+Sort by criterion, choose locally optimal
 ```csharp
-int[] dp = new int[n];
-dp[0] = base_case;
-for(int i=1; i<n; i++){
-    dp[i] = f(dp[i-1], arr[i]); // recurrence relation
+Array.Sort(items, (a, b) => /* compare by greedy property */);
+
+foreach (var item in items) {
+    if (/* greedy condition */) {
+        // Choose: take item, update state
+    }
 }
-return dp[n-1];
+```
+
+### 12. Graph Traversal (DFS)
+Recursive depth-first exploration
+```csharp
+var visited = new HashSet<T>();
+
+void DFS(Node node) {
+    if (visited.Contains(node)) return;
+    
+    visited.Add(node);
+    // Process: current node
+    
+    foreach (var neighbor in node.Neighbors) {
+        DFS(neighbor);
+    }
+}
+```
+
+### 13. Graph Traversal (BFS)
+Queue-based level-order exploration
+```csharp
+var queue = new Queue<T>();
+var visited = new HashSet<T>();
+
+queue.Enqueue(start);
+visited.Add(start);
+
+while (queue.Count > 0) {
+    var node = queue.Dequeue();
+    // Process: current node
+    
+    foreach (var neighbor in node.Neighbors) {
+        if (!visited.Contains(neighbor)) {
+            visited.Add(neighbor);
+            queue.Enqueue(neighbor);
+        }
+    }
+}
+```
+
+### 14. Backtracking
+Explore all paths with undo
+```csharp
+void Backtrack(State current, int index) {
+    if (/* base case */) {
+        result.Add(Copy(current));
+        return;
+    }
+    
+    for (int i = index; i < n; i++) {
+        // Choose: add to current state
+        // Explore: recurse with next index
+        Backtrack(current, i + 1);
+        // Undo: remove from current state
+    }
+}
 ```
 ## Pattern Decision Flow (Mermaid Diagram)
 ```mermaid
@@ -182,7 +278,7 @@ flowchart TD
     V -- No --> X[Custom / Unclassified Problem]
 ```
 
-##Canonical Skeletons for 13 Patterns and Variants
+## Canonical Skeletons for 13 Patterns and Variants
 | Pattern                              | Variants / Common Problems                                             | Canonical Skeleton / Template                                                                                                                                                                                                            | Key Notes / Comments                                                                                        |
 | ------------------------------------ | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
 | **1. Sliding Window**                | Max/Min subarray, Longest substring with unique chars, Sum of subarray | `csharp var left=0,maxLen=0; var map=new Dictionary<char,int>(); for(var right=0; right<s.Length; right++){ map[s[right]]++; while(condition) map[s[left]]--; left++; }`                                                                 | Expand window, contract with condition; track frequency/count; update result inside loop                    |

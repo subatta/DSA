@@ -48,6 +48,76 @@ Think of DP as **filling a table** where:
 
 ---
 
+## Pattern Variants (8 Total)
+
+### Variant 1: Climbing Stairs
+**Problem:** Count ways to climb n steps (1 or 2 steps at a time)
+**Key Technique:** Fibonacci recurrence, space optimization
+**Complexity:** O(n) time, O(1) space
+**Link:** [variant_1_climbing_stairs.md](variants/dp_1d/variant_1_climbing_stairs.md)
+
+### Variant 2: House Robber
+**Problem:** Maximum sum from non-adjacent elements
+**Key Technique:** Binary choice (rob or skip), track both options
+**Complexity:** O(n) time, O(1) space
+**Link:** [variant_2_house_robber.md](variants/dp_1d/variant_2_house_robber.md)
+
+### Variant 3: Coin Change
+**Problem:** Minimum coins to make target amount
+**Key Technique:** Unbounded knapsack, minimization
+**Complexity:** O(amount × coins) time, O(amount) space
+**Link:** [variant_3_coin_change.md](variants/dp_1d/variant_3_coin_change.md)
+
+### Variant 4: Longest Increasing Subsequence
+**Problem:** Length of longest strictly increasing subsequence
+**Key Technique:** O(n²) DP or O(n log n) with binary search + greedy
+**Complexity:** O(n²) or O(n log n) time
+**Link:** [variant_4_longest_increasing_subsequence.md](variants/dp_1d/variant_4_longest_increasing_subsequence.md)
+
+### Variant 5: Maximum Subarray (Kadane's Algorithm)
+**Problem:** Maximum sum of contiguous subarray
+**Key Technique:** Running state - extend current or restart
+**Complexity:** O(n) time, O(1) space
+**Link:** [variant_5_maximum_subarray.md](variants/dp_1d/variant_5_maximum_subarray.md)
+
+### Variant 6: Word Break
+**Problem:** Can string be segmented into dictionary words?
+**Key Technique:** String DP, check all valid breaks
+**Complexity:** O(n² × L) where L = avg word length
+**Link:** [variant_6_word_break.md](variants/dp_1d/variant_6_word_break.md)
+
+### Variant 7: Decode Ways
+**Problem:** Count ways to decode digit string
+**Key Technique:** Count valid 1-digit and 2-digit decodings
+**Complexity:** O(n) time, O(1) space
+**Link:** [variant_7_decode_ways.md](variants/dp_1d/variant_7_decode_ways.md)
+
+### Variant 8: Jump Game II
+**Problem:** Minimum jumps to reach end of array
+**Key Technique:** BFS levels or greedy range extension
+**Complexity:** O(n) time, O(1) space
+**Link:** [variant_8_jump_game_ii.md](variants/dp_1d/variant_8_jump_game_ii.md)
+
+---
+
+## Practice Progression
+
+**Start with:**
+1. Climbing Stairs (introduces Fibonacci pattern)
+2. House Robber (introduces choice-based DP)
+3. Maximum Subarray (Kadane's algorithm)
+
+**Build to:**
+4. Coin Change (unbounded knapsack intro)
+5. Word Break (string DP)
+6. Decode Ways (counting with constraints)
+
+**Master with:**
+7. Longest Increasing Subsequence (both approaches)
+8. Jump Game II (optimization techniques)
+
+---
+
 <details>
 <summary><b>Variant #1: Climbing Stairs</b></summary>
 

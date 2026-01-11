@@ -1,52 +1,116 @@
-# Pattern Title: Backtracking
+# Backtracking Pattern
 
-## Pattern Description:
-- What is it?  
-  Backtracking is a systematic way to explore all possible solutions by building candidates incrementally and abandoning (backtracking from) partial candidates as soon as it is clear they cannot lead to a valid solution.
+## Overview
 
-- What abstract problem does it solve?  
-  It solves **combinatorial search problems** where the solution space can be represented as a decision tree, and constraints allow early pruning of invalid branches.
+**Backtracking** is a systematic way to explore all possible solutions by making incremental choices and undoing them (backtracking) when they don't lead to valid solutions. It's essentially a smart brute-force approach with pruning.
 
-- Real-world problem variants (simplest first):  
-  1. Generate all subsets (power set)
-  2. Generate all permutations
-  3. Combination Sum
-  4. Letter Combinations of a Phone Number
-  5. Palindrome Partitioning
-  6. Word Search
-  7. N-Queens
-  8. Sudoku Solver
+**Core Idea:** Build solutions incrementally by making a series of choices, and abandon (prune) paths that can't lead to valid solutions.
 
-## Canonical Code Skeleton:
+**Time Complexity:** Typically exponential - O(b^d) where b is branching factor, d is depth
+**Space Complexity:** O(d) for recursion stack
+
+---
+
+## When to Use Backtracking
+
+Use backtracking when:
+- Problem asks for **all solutions** (subsets, permutations, combinations)
+- Need to explore **all possibilities** with constraints
+- Problem has **combinatorial structure** (choices at each step)
+- Constraints allow **pruning** invalid paths early
+- Output is exponential in size
+
+**Key Indicators:**
+- "Find all combinations/permutations/subsets"
+- "Generate all valid configurations"
+- "Count number of ways to..."
+- Constraint satisfaction problems (N-Queens, Sudoku)
+
+---
+
+## Backtracking Template
 
 ```csharp
-void BacktrackTemplate(int start, List<T> current, State state) {
-    // Base case: valid solution found
-    if (IsValidSolution(current, state)) {
-        result.Add(new List<T>(current));
+void Backtrack(state, choices) {
+    // Base case: solution complete
+    if (IsComplete(state)) {
+        ProcessSolution(state);
         return;
     }
-
-    // Early termination: prune invalid branches
-    if (ShouldPrune(current, state)) {
-        return;
-    }
-
-    // Explore choices
-    for (int i = start; i < choices.Length; i++) {
-        // Choose
-        current.Add(choices[i]);
-        UpdateState(state, choices[i]);
-
-        // Explore
-        BacktrackTemplate(i + 1, current, state);
-
-        // Unchoose (backtrack)
-        current.RemoveAt(current.Count - 1);
-        RevertState(state, choices[i]);
+    
+    // Try each valid choice
+    foreach (var choice in GetValidChoices(state)) {
+        // Choose: make a choice and update state
+        MakeChoice(state, choice);
+        
+        // Explore: recurse with updated state
+        Backtrack(state, choices);
+        
+        // Unchoose: undo choice (backtrack)
+        UndoChoice(state, choice);
     }
 }
 ```
+
+---
+
+## Pattern Variants (7 Total)
+
+### Variant 1: Subsets
+**Problem:** Generate all possible subsets (power set)
+**Key Technique:** Include/exclude each element, use startIndex
+**Complexity:** O(n × 2^n)
+**Link:** [variant_1_subsets.md](variants/backtracking/variant_1_subsets.md)
+
+### Variant 2: Permutations
+**Problem:** Generate all orderings of elements
+**Key Technique:** Track used elements or swap technique
+**Complexity:** O(n × n!)
+**Link:** [variant_2_permutations.md](variants/backtracking/variant_2_permutations.md)
+
+### Variant 3: Combination Sum
+**Problem:** Find combinations summing to target (unlimited reuse)
+**Key Technique:** Allow element reuse, prune when exceed target
+**Complexity:** O(N^(T/M)) where T=target, M=min element
+**Link:** [variant_3_combination_sum.md](variants/backtracking/variant_3_combination_sum.md)
+
+### Variant 4: N-Queens
+**Problem:** Place N queens on board with no attacks
+**Key Technique:** Row-by-row placement, track columns & diagonals
+**Complexity:** O(N!)
+**Link:** [variant_4_n_queens.md](variants/backtracking/variant_4_n_queens.md)
+
+### Variant 5: Palindrome Partitioning
+**Problem:** Partition string into all-palindrome substrings
+**Key Technique:** Try all cut positions, validate palindromes
+**Complexity:** O(n × 2^n)
+**Link:** [variant_5_palindrome_partitioning.md](variants/backtracking/variant_5_palindrome_partitioning.md)
+
+### Variant 6: Word Search
+**Problem:** Find word path in grid
+**Key Technique:** DFS from each start cell, mark visited in-place
+**Complexity:** O(m × n × 4^L) where L=word length
+**Link:** [variant_6_word_search.md](variants/backtracking/variant_6_word_search.md)
+
+### Variant 7: Generate Parentheses
+**Problem:** Generate all valid parentheses combinations
+**Key Technique:** Track open/close counts, enforce constraints
+**Complexity:** O(4^n / √n) - Catalan number
+**Link:** [variant_7_generate_parentheses.md](variants/backtracking/variant_7_generate_parentheses.md)
+
+---
+
+## Practice Progression
+
+**Recommended Learning Order:**
+
+1. **Start with Variant #1 (Subsets)** - Simplest, introduces basic backtracking
+2. **Then Variant #2 (Permutations)** - Adds "used" tracking concept
+3. **Then Variant #7 (Generate Parentheses)** - Introduces constraint-based generation
+4. **Then Variant #3 (Combination Sum)** - Target-based with pruning
+5. **Then Variant #5 (Palindrome Partitioning)** - Partitioning with validation
+6. **Then Variant #6 (Word Search)** - Grid-based path finding
+7. **Finally Variant #4 (N-Queens)** - Complex constraint satisfaction
 
 <details>
 <summary><b>Variant #1: Generate All Subsets (Power Set)</b></summary>
