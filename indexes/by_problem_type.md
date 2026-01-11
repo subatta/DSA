@@ -13,26 +13,26 @@ This index organizes patterns by the **goal or objective** of the problem, helpi
 #### 1. **Dynamic Programming 1D** (8 variants)
 **Use when:** Overlapping subproblems, need to try multiple choices
 
-- **Climbing Stairs** - Count ways to reach top
-- **House Robber** - Maximum sum (non-adjacent)
-- **Coin Change** - Minimum coins to make amount
-- **Longest Increasing Subsequence** - Longest length
-- **Maximum Subarray (Kadane's)** - Maximum sum
-- **Word Break** - Can partition string?
-- **Decode Ways** - Count valid decodings
-- **Jump Game II** - Minimum jumps
+- **[Climbing Stairs](../variants/dp_1d/variant_1_climbing_stairs.md)** - Count ways to reach top
+- **[House Robber](../variants/dp_1d/variant_2_house_robber.md)** - Maximum sum (non-adjacent)
+- **[Coin Change](../variants/dp_1d/variant_3_coin_change.md)** - Minimum coins to make amount
+- **[Longest Increasing Subsequence](../variants/dp_1d/variant_4_longest_increasing_subsequence.md)** - Longest length
+- **[Maximum Subarray (Kadane's)](../variants/dp_1d/variant_5_maximum_subarray.md)** - Maximum sum
+- **[Word Break](../variants/dp_1d/variant_6_word_break.md)** - Can partition string?
+- **[Decode Ways](../variants/dp_1d/variant_7_decode_ways.md)** - Count valid decodings
+- **[Jump Game II](../variants/dp_1d/variant_8_jump_game_ii.md)** - Minimum jumps
 
 **Signal Words:** "minimum cost", "maximum value", "count ways to"
 
 #### 2. **Greedy** (6 variants)
 **Use when:** Local optimal leads to global optimal
 
-- **Activity Selection** - Maximum non-overlapping activities
-- **Jump Game** - Can reach end?
-- **Jump Game II** - Minimum jumps
-- **Gas Station** - Find starting point
-- **Task Scheduler** - Minimum idle time
-- **Partition Labels** - Maximum partition count
+- **[Activity Selection](../variants/greedy/variant_1_activity_selection.md)** - Maximum non-overlapping activities
+- **[Jump Game](../variants/greedy/variant_2_jump_game.md)** - Can reach end?
+- **[Jump Game II](../variants/dp_1d/variant_8_jump_game_ii.md)** - Minimum jumps
+- **[Gas Station](../variants/greedy/variant_3_gas_station.md)** - Find starting point
+- **[Task Scheduler](../variants/greedy/variant_5_task_scheduler.md)** - Minimum idle time
+- **[Partition Labels](../variants/greedy/variant_6_partition_labels.md)** - Maximum partition count
 
 **Signal Words:** "minimum", "maximum", "optimal", "scheduling"
 
@@ -41,9 +41,9 @@ This index organizes patterns by the **goal or objective** of the problem, helpi
 - **DP:** Need to explore multiple choices, can't commit early
 
 #### 3. **Sliding Window** (optimization variants)
-- **Maximum Sum Subarray of Size K** - Maximum sum
-- **Minimum Size Subarray Sum** - Minimum length
-- **Minimum Window Substring** - Smallest window
+- **[Maximum Sum Subarray of Size K](../variants/sliding_window/variant_8_max_sum_subarray_size_k.md)** - Maximum sum
+- **[Minimum Size Subarray Sum](../variants/sliding_window/variant_5_min_size_subarray_sum.md)** - Minimum length
+- **[Minimum Window Substring](../variants/sliding_window/variant_3_min_window_substring.md)** - Smallest window
 
 **Use when:** Optimizing over contiguous sequences
 
@@ -58,26 +58,26 @@ This index organizes patterns by the **goal or objective** of the problem, helpi
 #### 1. **Binary Search** (6 variants)
 **Use when:** Search space is sorted or monotonic
 
-- **Classic Binary Search** - Find exact value
-- **Search Insert Position** - Find insertion point
-- **Search in Rotated Sorted Array** - Modified search
-- **Find First and Last Position** - Find boundaries
-- **Find Peak Element** - Find local maximum
-- **Koko Eating Bananas** - Binary search on answer
+- **[Classic Binary Search](../variants/binary_search/variant_1_classic_binary_search.md)** - Find exact value
+- **[Search Insert Position](../variants/binary_search/variant_2_search_insert_position.md)** - Find insertion point
+- **[Search in Rotated Sorted Array](../variants/binary_search/variant_3_rotated_array.md)** - Modified search
+- **[Find First and Last Position](../variants/binary_search/variant_4_first_last_position.md)** - Find boundaries
+- **[Find Peak Element](../variants/binary_search/variant_5_find_peak_element.md)** - Find local maximum
+- **[Koko Eating Bananas](../variants/binary_search/variant_6_koko_eating_bananas.md)** - Binary search on answer
 
 **Signal Words:** "sorted", "find", "search for", "locate"
 
 #### 2. **Hash Map** (lookup variants)
-- **Two Sum** - Find pair with target sum
-- **Contains Duplicate II** - Find duplicate within distance
-- **Longest Consecutive Sequence** - Find longest sequence
+- **[Two Sum](../variants/hash_map/variant_1_two_sum.md)** - Find pair with target sum
+- **[Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)** - Find duplicate within distance
+- **[Longest Consecutive Sequence](../variants/hash_map/variant_4_longest_consecutive.md)** - Find longest sequence
 
 **Use when:** Need fast O(1) lookup
 
 #### 3. **Graph Traversal (BFS)** (shortest path)
-- **Word Ladder** - Shortest transformation
-- **Network Delay Time** - Shortest path (weighted)
-- **Number of Islands** - Find all components
+- **[Word Ladder](../variants/graph/variant_5_word_ladder.md)** - Shortest transformation
+- **[Network Delay Time](../variants/graph/variant_6_network_delay_time.md)** - Shortest path (weighted)
+- **[Number of Islands](../variants/graph/variant_1_number_of_islands.md)** - Find all components
 
 **Use when:** Searching graphs, finding paths
 
@@ -90,24 +90,24 @@ This index organizes patterns by the **goal or objective** of the problem, helpi
 ### Primary Patterns:
 
 #### 1. **Dynamic Programming** (counting variants)
-- **Climbing Stairs** - Count ways to climb
-- **Decode Ways** - Count valid decodings
+- **[Climbing Stairs](../variants/dp_1d/variant_1_climbing_stairs.md)** - Count ways to climb
+- **[Decode Ways](../variants/dp_1d/variant_7_decode_ways.md)** - Count valid decodings
 - **Coin Change II** - Count combinations
 
 **Use when:** Need to count all valid ways
 
 #### 2. **Backtracking** (generation + counting)
-- **Subsets** - Count/generate all subsets (2ⁿ)
-- **Permutations** - Count/generate all orderings (n!)
-- **Combination Sum** - Count valid combinations
-- **Generate Parentheses** - Count valid strings
+- **[Subsets](../variants/backtracking/variant_1_subsets.md)** - Count/generate all subsets (2ⁿ)
+- **[Permutations](../variants/backtracking/variant_3_permutations.md)** - Count/generate all orderings (n!)
+- **[Combination Sum](../variants/backtracking/variant_7_combination_sum.md)** - Count valid combinations
+- **[Generate Parentheses](../variants/backtracking/variant_2_generate_parentheses.md)** - Count valid strings
 
 **Use when:** Small n (≤ 20), need explicit generation or counting
 
 #### 3. **Hash Map** (frequency counting)
-- **Group Anagrams** - Count groups
-- **Subarray Sum Equals K** - Count subarrays
-- **Top K Frequent Elements** - Count frequencies
+- **[Group Anagrams](../variants/hash_map/variant_2_group_anagrams.md)** - Count groups
+- **[Subarray Sum Equals K](../variants/hash_map/variant_3_subarray_sum_k.md)** - Count subarrays
+- **[Top K Frequent Elements](../variants/top_k/variant_2_top_k_frequent.md)** - Count frequencies
 
 **Use when:** Counting occurrences or frequencies
 
@@ -119,13 +119,13 @@ This index organizes patterns by the **goal or objective** of the problem, helpi
 
 ### Primary Pattern: **Backtracking** (7 variants)
 
-1. **Subsets** - Generate all subsets (power set)
-2. **Permutations** - Generate all orderings
-3. **Combination Sum** - Generate all combinations
-4. **N-Queens** - Generate all valid board placements
-5. **Palindrome Partitioning** - Generate all palindrome partitions
-6. **Word Search** - Find if word exists in grid
-7. **Generate Parentheses** - Generate all valid parentheses
+1. **[Subsets](../variants/backtracking/variant_1_subsets.md)** - Generate all subsets (power set)
+2. **[Permutations](../variants/backtracking/variant_3_permutations.md)** - Generate all orderings
+3. **[Combination Sum](../variants/backtracking/variant_7_combination_sum.md)** - Generate all combinations
+4. **[N-Queens](../variants/backtracking/variant_4_n_queens.md)** - Generate all valid board placements
+5. **[Palindrome Partitioning](../variants/backtracking/variant_5_palindrome_partitioning.md)** - Generate all palindrome partitions
+6. **[Word Search](../variants/backtracking/variant_6_word_search.md)** - Find if word exists in grid
+7. **[Generate Parentheses](../variants/backtracking/variant_2_generate_parentheses.md)** - Generate all valid parentheses
 
 **Characteristics:**
 - Exponential time: O(2ⁿ) to O(n!)
@@ -160,28 +160,28 @@ void Backtrack(state, startIndex) {
 #### 1. **Sliding Window** (8 variants)
 **Use when:** Need to process contiguous subarray/substring
 
-- **Maximum Sum Subarray of Size K** - Fixed window
-- **Longest Substring Without Repeating** - Variable window
-- **Minimum Window Substring** - Shrinkable window
-- **Subarray Product Less Than K** - Constraint-based
-- **Sliding Window Maximum** - Track max in window
+- **[Maximum Sum Subarray of Size K](../variants/sliding_window/variant_8_max_sum_subarray_size_k.md)** - Fixed window
+- **[Longest Substring Without Repeating](../variants/sliding_window/variant_1_longest_substring_no_repeat.md)** - Variable window
+- **[Minimum Window Substring](../variants/sliding_window/variant_3_min_window_substring.md)** - Shrinkable window
+- **[Subarray Product Less Than K](../variants/sliding_window/variant_2_subarray_product_less_k.md)** - Constraint-based
+- **[Sliding Window Maximum](../variants/sliding_window/variant_6_sliding_window_maximum.md)** - Track max in window
 
 **Signal Words:** "subarray", "substring", "contiguous", "consecutive"
 
 #### 2. **Prefix Sum** (4 variants)
 **Use when:** Need sum of ranges efficiently
 
-- **Range Sum Query** - O(1) range sums
-- **Subarray Sum Equals K** - Count subarrays with sum
-- **Continuous Subarray Sum** - Multiple of k
-- **Find Pivot Index** - Equal left/right sums
+- **[Range Sum Query](../variants/prefix_sum/variant_1_range_sum_query.md)** - O(1) range sums
+- **[Subarray Sum Equals K](../variants/hash_map/variant_3_subarray_sum_k.md)** - Count subarrays with sum
+- **[Continuous Subarray Sum](../variants/prefix_sum/variant_4_continuous_subarray_sum.md)** - Multiple of k
+- **[Find Pivot Index](../variants/prefix_sum/variant_3_find_pivot_index.md)** - Equal left/right sums
 
 **Signal Words:** "range sum", "subarray sum", "cumulative"
 
 #### 3. **Two Pointers**
-- **Container With Most Water** - Maximum area
-- **Trapping Rain Water** - Water trapped
-- **3Sum** - Find triplets
+- **[Container With Most Water](../variants/two_pointers/variant_3_container_with_most_water.md)** - Maximum area
+- **[Trapping Rain Water](../variants/two_pointers/variant_6_trapping_rain_water.md)** - Water trapped
+- **[3Sum](../variants/two_pointers/variant_4_three_sum.md)** - Find triplets
 
 **Use when:** Can eliminate options by comparing
 
@@ -196,23 +196,23 @@ void Backtrack(state, startIndex) {
 #### 1. **Intervals / Merging** (5 variants)
 **Use when:** Dealing with ranges/intervals
 
-- **Merge Intervals** - Collapse overlaps
-- **Insert Interval** - Maintain sorted intervals
-- **Non-Overlapping Intervals** - Remove minimum
-- **Meeting Rooms II** - Count overlaps
-- **Interval List Intersections** - Find overlaps
+- **[Merge Intervals](../variants/intervals/variant_1_merge_intervals.md)** - Collapse overlaps
+- **[Insert Interval](../variants/intervals/variant_2_insert_interval.md)** - Maintain sorted intervals
+- **[Non-Overlapping Intervals](../variants/intervals/variant_3_non_overlapping_intervals.md)** - Remove minimum
+- **[Meeting Rooms II](../variants/intervals/variant_4_meeting_rooms_ii.md)** - Count overlaps
+- **[Interval List Intersections](../variants/intervals/variant_5_interval_list_intersections.md)** - Find overlaps
 
 **Key:** Sort by start time, then process
 
 #### 2. **Graph Traversal** (topological sort)
-- **Course Schedule** - Topological ordering
+- **[Course Schedule](../variants/graph/variant_3_course_schedule.md)** - Topological ordering
 - **Course Schedule II** - Return valid order
 
 **Use when:** Dependencies or ordering constraints
 
 #### 3. **Two Pointers**
-- **Sort Colors** - In-place partitioning
-- **Remove Duplicates** - Maintain order
+- **[Sort Colors](../variants/two_pointers/variant_5_sort_colors.md)** - In-place partitioning
+- **[Remove Duplicates](../variants/two_pointers/variant_7_remove_duplicates.md)** - Maintain order
 
 ---
 
@@ -225,19 +225,19 @@ void Backtrack(state, startIndex) {
 #### 1. **Top K Elements** (4 variants)
 **Use when:** Need K largest/smallest/frequent
 
-- **Kth Largest Element** - Find Kth largest
-- **Top K Frequent Elements** - K most frequent
-- **K Closest Points** - K nearest to origin
-- **K Pairs with Smallest Sums** - K smallest pairs
+- **[Kth Largest Element](../variants/top_k/variant_1_kth_largest_element.md)** - Find Kth largest
+- **[Top K Frequent Elements](../variants/top_k/variant_2_top_k_frequent.md)** - K most frequent
+- **[K Closest Points](../variants/top_k/variant_3_k_closest_points.md)** - K nearest to origin
+- **[K Pairs with Smallest Sums](../variants/top_k/variant_4_k_pairs_smallest_sums.md)** - K smallest pairs
 
 **Technique:** Heap of size K
 
 #### 2. **Heap / Priority Queue** (5 variants)
 **Use when:** Need to repeatedly access extreme
 
-- **Kth Largest in Stream** - Maintain Kth largest
-- **Find Median from Stream** - Two heaps
-- **Merge K Sorted Lists** - Multi-way merge
+- **[Kth Largest in Stream](../variants/heap/variant_1_kth_largest_stream.md)** - Maintain Kth largest
+- **[Find Median from Stream](../variants/heap/variant_2_find_median_stream.md)** - Two heaps
+- **[Merge K Sorted Lists](../variants/heap/variant_3_merge_k_sorted_lists.md)** - Multi-way merge
 
 **Signal Words:** "Kth", "top K", "largest", "smallest", "median"
 
@@ -250,21 +250,21 @@ void Backtrack(state, startIndex) {
 ### Primary Patterns:
 
 #### 1. **Fast & Slow Pointers** (cycle detection)
-- **Linked List Cycle** - Has cycle?
-- **Happy Number** - Reaches 1 or cycles?
+- **[Linked List Cycle](../variants/fast_slow_pointers/variant_1_linked_list_cycle.md)** - Has cycle?
+- **[Happy Number](../variants/fast_slow_pointers/variant_5_happy_number.md)** - Reaches 1 or cycles?
 
 **Use when:** Checking cycles or loops
 
 #### 2. **Two Pointers** (validation)
-- **Valid Palindrome** - Is palindrome?
+- **[Valid Palindrome](../variants/two_pointers/variant_2_valid_palindrome.md)** - Is palindrome?
 
 #### 3. **Graph Traversal** (reachability)
-- **Course Schedule** - Is valid ordering possible?
-- **Number of Islands** - Count connected components
+- **[Course Schedule](../variants/graph/variant_3_course_schedule.md)** - Is valid ordering possible?
+- **[Number of Islands](../variants/graph/variant_1_number_of_islands.md)** - Count connected components
 
 #### 4. **Dynamic Programming** (feasibility)
-- **Word Break** - Can segment string?
-- **Jump Game** - Can reach end?
+- **[Word Break](../variants/dp_1d/variant_6_word_break.md)** - Can segment string?
+- **[Jump Game](../variants/greedy/variant_2_jump_game.md)** - Can reach end?
 
 **Signal Words:** "can you", "is it possible", "valid", "feasible"
 
@@ -279,14 +279,14 @@ void Backtrack(state, startIndex) {
 #### 1. **Hash Map** (5 variants)
 **Use when:** Need to find matching elements
 
-- **Two Sum** ⭐ - Find pair summing to target
-- **Group Anagrams** - Match anagrams together
-- **Longest Consecutive Sequence** - Match consecutive numbers
+- **[Two Sum](../variants/hash_map/variant_1_two_sum.md)** ⭐ - Find pair summing to target
+- **[Group Anagrams](../variants/hash_map/variant_2_group_anagrams.md)** - Match anagrams together
+- **[Longest Consecutive Sequence](../variants/hash_map/variant_4_longest_consecutive.md)** - Match consecutive numbers
 
 #### 2. **Two Pointers**
-- **Two Sum II (Sorted)** - Find pair in sorted array
-- **3Sum** - Find triplets
-- **Container With Most Water** - Find optimal pair
+- **[Two Sum II (Sorted)](../variants/two_pointers/variant_1_two_sum_ii.md)** - Find pair in sorted array
+- **[3Sum](../variants/two_pointers/variant_4_three_sum.md)** - Find triplets
+- **[Container With Most Water](../variants/two_pointers/variant_3_container_with_most_water.md)** - Find optimal pair
 
 **Signal Words:** "find pair", "two elements", "match"
 
@@ -298,12 +298,12 @@ void Backtrack(state, startIndex) {
 
 ### Primary Pattern: **Graph Traversal (BFS/DFS)** (6 variants)
 
-1. **Number of Islands** - Count connected components
-2. **Clone Graph** - Traverse and copy
-3. **Course Schedule** - Check if all reachable (no cycles)
-4. **Pacific Atlantic Water Flow** - Multi-source reachability
-5. **Word Ladder** - Can transform word to target?
-6. **Network Delay Time** - Can signal reach all nodes?
+1. **[Number of Islands](../variants/graph/variant_1_number_of_islands.md)** - Count connected components
+2. **[Clone Graph](../variants/graph/variant_2_clone_graph.md)** - Traverse and copy
+3. **[Course Schedule](../variants/graph/variant_3_course_schedule.md)** - Check if all reachable (no cycles)
+4. **[Pacific Atlantic Water Flow](../variants/graph/variant_4_pacific_atlantic.md)** - Multi-source reachability
+5. **[Word Ladder](../variants/graph/variant_5_word_ladder.md)** - Can transform word to target?
+6. **[Network Delay Time](../variants/graph/variant_6_network_delay_time.md)** - Can signal reach all nodes?
 
 **Choose BFS when:** Need shortest path
 **Choose DFS when:** Need any path or full exploration
@@ -319,15 +319,15 @@ void Backtrack(state, startIndex) {
 ### Primary Patterns:
 
 #### 1. **Dynamic Programming**
-- **Decode Ways** - Transform digit string to letters
-- **Word Break** - Transform string to words
+- **[Decode Ways](../variants/dp_1d/variant_7_decode_ways.md)** - Transform digit string to letters
+- **[Word Break](../variants/dp_1d/variant_6_word_break.md)** - Transform string to words
 
 #### 2. **Monotonic Stack**
-- **Remove K Digits** - Construct smallest number
+- **[Remove K Digits](../variants/monotonic_stack/variant_5_remove_k_digits.md)** - Construct smallest number
 
 #### 3. **Backtracking**
-- **Generate Parentheses** - Construct valid strings
-- **N-Queens** - Construct valid board
+- **[Generate Parentheses](../variants/backtracking/variant_2_generate_parentheses.md)** - Construct valid strings
+- **[N-Queens](../variants/backtracking/variant_4_n_queens.md)** - Construct valid board
 
 ---
 
@@ -338,11 +338,11 @@ void Backtrack(state, startIndex) {
 ### Primary Patterns:
 
 #### 1. **Heap / Priority Queue**
-- **Kth Largest in Stream** - Maintain Kth as elements arrive
-- **Find Median from Stream** - Update median online
+- **[Kth Largest in Stream](../variants/heap/variant_1_kth_largest_stream.md)** - Maintain Kth as elements arrive
+- **[Find Median from Stream](../variants/heap/variant_2_find_median_stream.md)** - Update median online
 
 #### 2. **Hash Map**
-- **Contains Duplicate II** - Track recent elements
+- **[Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)** - Track recent elements
 - **LRU Cache** - Maintain recent accesses
 
 **Signal Words:** "stream", "online", "as elements arrive", "maintain"

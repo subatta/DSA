@@ -28,13 +28,13 @@ Window 1: [2, 1, 5] sum = 8
            ┃━━━━━┃
            
  Window 2:    [1, 5, 1] sum = 7
-                 ┃━━━━━┃
+               ┃━━━━━┃
 
   Window 3:       [5, 1, 3] sum = 9 ✓ (maximum)
-                     ┃━━━━━┃
+                   ┃━━━━━┃
 
    Window 4:          [1, 3, 2] sum = 6
-                         ┃━━━━━┃
+                       ┃━━━━━┃
 
 Strategy: Slide window right, remove left element, add right element
 ```
@@ -149,25 +149,18 @@ Maintain a **running sum** and update it incrementally:
 
 ### **Canonical Skeleton Applied:**
 ```csharp
-int SlidingWindowTemplate(int[] nums, int kOrCondition) {
-    int left = 0;
-    int result = 0;
-    var windowState = new Dictionary<int,int>();
+int left = 0;
+// Initialize: window state, result
 
-    for (int right = 0; right < nums.Length; right++) {
-        // Update windowState with nums[right]
-        
-        // Shrink window if condition violated
-        while (ConditionViolated(windowState)) {
-            // Update windowState by removing nums[left]
-            left++;
-        }
-
-        // Update result based on current window
-        result = UpdateResult(result, windowState);
+for (int right = 0; right < n; right++) {
+    // Expand: add right element to window
+    
+    while (/* window invalid */) {
+        // Shrink: remove left element from window
+        left++;
     }
-
-    return result;
+    
+    // Update: result from [left, right] window
 }
 ```
 
@@ -175,13 +168,15 @@ int SlidingWindowTemplate(int[] nums, int kOrCondition) {
 ```csharp
 int MaxSumSubarray(int[] nums, int k) 
 {
-    int maxSum = 0, windowSum = 0;
-    
+    int windowSum = 0;    
     // Build initial window [0, k-1]
     for (int i = 0; i < k; i++)
     {
         windowSum += nums[i];
     }
+
+    int maxSum = 0; 
+    // set initial max sum
     maxSum = windowSum;
     
     // Slide window: remove left, add right
@@ -200,8 +195,9 @@ int MaxSumSubarray(int[] nums, int k)
 1. **Fixed window size**: No while loop needed - window always size k
 2. **windowState** → `windowSum` (single integer, not dictionary)
 3. **Initial window**: Build first window separately
-4. **Sliding logic**: `windowSum - nums[left] + nums[right]`
-5. **UpdateResult** → `Math.Max(maxSum, windowSum)`
+4. **MaxSum**: Result and inital value set
+5. **Sliding logic**: `windowSum - nums[left] + nums[right]`
+6. **UpdateResult** → `Math.Max(maxSum, windowSum)`
 
 ### **Optimized Value Trace (nums = [2,1,5,1,3,2], k=3):**
 

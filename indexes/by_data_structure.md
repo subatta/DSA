@@ -11,79 +11,79 @@ This index organizes patterns by the **primary data structure** mentioned in the
 **Primary Patterns:**
 
 #### 1. **Sliding Window** (8 variants) - Contiguous sequences
-- Maximum Sum Subarray of Size K
-- Longest Substring Without Repeating
-- Minimum Window Substring
-- Subarray Product Less Than K
-- Minimum Size Subarray Sum
-- Sliding Window Maximum
-- K Distinct Characters
+- [Maximum Sum Subarray of Size K](../variants/sliding_window/variant_8_max_sum_subarray_size_k.md)
+- [Longest Substring Without Repeating](../variants/sliding_window/variant_1_longest_substring_no_repeat.md)
+- [Minimum Window Substring](../variants/sliding_window/variant_3_min_window_substring.md)
+- [Subarray Product Less Than K](../variants/sliding_window/variant_2_subarray_product_less_k.md)
+- [Minimum Size Subarray Sum](../variants/sliding_window/variant_5_min_size_subarray_sum.md)
+- [Sliding Window Maximum](../variants/sliding_window/variant_6_sliding_window_maximum.md)
+- [K Distinct Characters](../variants/sliding_window/variant_7_k_distinct_characters.md)
 
 **Signal Words:** "subarray", "contiguous", "substring", "window"
 
 #### 2. **Two Pointers** (8 variants) - Pairs/triplets, sorted arrays
-- Two Sum II (Sorted Array)
-- Container With Most Water
-- 3Sum
-- Trapping Rain Water
-- Remove Duplicates
-- Move Zeros
-- Sort Colors
+- [Two Sum II (Sorted Array)](../variants/two_pointers/variant_1_two_sum_ii.md)
+- [Container With Most Water](../variants/two_pointers/variant_3_container_with_most_water.md)
+- [3Sum](../variants/two_pointers/variant_4_three_sum.md)
+- [Trapping Rain Water](../variants/two_pointers/variant_6_trapping_rain_water.md)
+- [Remove Duplicates](../variants/two_pointers/variant_7_remove_duplicates.md)
+- [Move Zeros](../variants/two_pointers/variant_8_move_zeros.md)
+- [Sort Colors](../variants/two_pointers/variant_5_sort_colors.md)
 
 **Signal Words:** "two elements", "pair sum", "sorted", "palindrome"
 
 #### 3. **Hash Map** (5 variants) - Counting, grouping
-- Two Sum
-- Subarray Sum Equals K
-- Longest Consecutive Sequence
-- Contains Duplicate II
+- [Two Sum](../variants/hash_map/variant_1_two_sum.md)
+- [Subarray Sum Equals K](../variants/hash_map/variant_3_subarray_sum_k.md)
+- [Longest Consecutive Sequence](../variants/hash_map/variant_4_longest_consecutive.md)
+- [Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)
 
 **Signal Words:** "frequency", "count", "find pair", "group by"
 
 #### 4. **Prefix Sum** (4 variants) - Range queries
-- Range Sum Query
-- Product of Array Except Self
-- Find Pivot Index
-- Continuous Subarray Sum
+- [Range Sum Query](../variants/prefix_sum/variant_1_range_sum_query.md)
+- [Product of Array Except Self](../variants/prefix_sum/variant_2_product_except_self.md)
+- [Find Pivot Index](../variants/prefix_sum/variant_3_find_pivot_index.md)
+- [Continuous Subarray Sum](../variants/prefix_sum/variant_4_continuous_subarray_sum.md)
 
 **Signal Words:** "subarray sum", "range query", "cumulative"
 
 #### 5. **Monotonic Stack** (5 variants) - Next greater/smaller
-- Next Greater Element
-- Daily Temperatures
-- Largest Rectangle in Histogram
-- Remove K Digits
+- [Next Greater Element](../variants/monotonic_stack/variant_1_next_greater_element.md)
+- [Daily Temperatures](../variants/monotonic_stack/variant_2_daily_temperatures.md)
+- [Largest Rectangle in Histogram](../variants/monotonic_stack/variant_3_largest_rectangle_histogram.md)
+- [Remove K Digits](../variants/monotonic_stack/variant_5_remove_k_digits.md)
 
 **Signal Words:** "next greater", "next smaller", "span", "histogram"
 
 #### 6. **Binary Search** (6 variants) - Sorted or monotonic
-- Classic Binary Search
-- Search Insert Position
-- Search in Rotated Sorted Array
-- Find First and Last Position
-- Find Peak Element
-- Koko Eating Bananas
+- [Classic Binary Search](../variants/binary_search/variant_1_classic_binary_search.md)
+- [Search Insert Position](../variants/binary_search/variant_2_search_insert_position.md)
+- [Search in Rotated Sorted Array](../variants/binary_search/variant_3_rotated_array.md)
+- [Find First and Last Position](../variants/binary_search/variant_4_first_last_position.md)
+- [Find Peak Element](../variants/binary_search/variant_5_find_peak_element.md)
+- [Koko Eating Bananas](../variants/binary_search/variant_6_koko_eating_bananas.md)
 
 **Signal Words:** "sorted", "find target", "monotonic", "search"
 
 #### 7. **Dynamic Programming 1D** (8 variants) - Optimization
-- Climbing Stairs
-- House Robber
-- Coin Change
-- Longest Increasing Subsequence
-- Maximum Subarray
-- Word Break
-- Decode Ways
-- Jump Game II
+- [Climbing Stairs](../variants/dp_1d/variant_1_climbing_stairs.md)
+- [House Robber](../variants/dp_1d/variant_2_house_robber.md)
+- [Coin Change](../variants/dp_1d/variant_3_coin_change.md)
+- [Longest Increasing Subsequence](../variants/dp_1d/variant_4_longest_increasing_subsequence.md)
+- [Maximum Subarray](../variants/dp_1d/variant_5_maximum_subarray.md)
+- [Word Break](../variants/dp_1d/variant_6_word_break.md)
+- [Decode Ways](../variants/dp_1d/variant_7_decode_ways.md)
+- [Jump Game II](../variants/dp_1d/variant_8_jump_game_ii.md)
 
 **Signal Words:** "count ways", "maximum/minimum", "can you reach"
 
 #### 8. **Greedy** (6 variants) - Local optimal choices
-- Activity Selection
-- Jump Game
-- Gas Station
-- Task Scheduler
-- Partition Labels
+- [Activity Selection](../variants/greedy/variant_1_activity_selection.md)
+- [Jump Game](../variants/greedy/variant_2_jump_game.md)
+- [Gas Station](../variants/greedy/variant_3_gas_station.md)
+- [Task Scheduler](../variants/greedy/variant_5_task_scheduler.md)
+- [Partition Labels](../variants/greedy/variant_6_partition_labels.md)
 
 **Signal Words:** "minimum/maximum", "scheduling", "optimal"
 
@@ -96,37 +96,37 @@ This index organizes patterns by the **primary data structure** mentioned in the
 **Applicable Patterns:**
 
 #### 1. **Sliding Window** (string variants)
-- Longest Substring Without Repeating Characters ⭐
-- Minimum Window Substring ⭐
-- K Distinct Characters
-- Find All Anagrams
+- [Longest Substring Without Repeating Characters](../variants/sliding_window/variant_1_longest_substring_no_repeat.md) ⭐
+- [Minimum Window Substring](../variants/sliding_window/variant_3_min_window_substring.md) ⭐
+- [K Distinct Characters](../variants/sliding_window/variant_7_k_distinct_characters.md)
+- [Find All Anagrams](../variants/sliding_window/variant_4_find_all_anagrams.md)
 
 **Use when:** "substring", "contiguous characters", "window"
 
 #### 2. **Two Pointers** (string variants)
-- Valid Palindrome
-- 3Sum (after sorting)
+- [Valid Palindrome](../variants/two_pointers/variant_2_valid_palindrome.md)
+- [3Sum (after sorting)](../variants/two_pointers/variant_4_three_sum.md)
 
 **Use when:** "palindrome", "reverse", "compare"
 
 #### 3. **Hash Map** (string variants)
-- Group Anagrams ⭐
+- [Group Anagrams](../variants/hash_map/variant_2_group_anagrams.md) ⭐
 - First Unique Character
 - Longest Substring with At Most K Distinct
 
 **Use when:** "anagram", "frequency", "character count"
 
 #### 4. **Dynamic Programming** (string variants)
-- Word Break ⭐
-- Decode Ways ⭐
-- Longest Increasing Subsequence (with sorting)
+- [Word Break](../variants/dp_1d/variant_6_word_break.md) ⭐
+- [Decode Ways](../variants/dp_1d/variant_7_decode_ways.md) ⭐
+- [Longest Increasing Subsequence (with sorting)](../variants/dp_1d/variant_4_longest_increasing_subsequence.md)
 
 **Use when:** "partition string", "decode", "count ways"
 
 #### 5. **Backtracking** (string variants)
-- Palindrome Partitioning
-- Generate Parentheses
-- Word Search (if in grid)
+- [Palindrome Partitioning](../variants/backtracking/variant_5_palindrome_partitioning.md)
+- [Generate Parentheses](../variants/backtracking/variant_2_generate_parentheses.md)
+- [Word Search (if in grid)](../variants/backtracking/variant_6_word_search.md)
 
 **Use when:** "all partitions", "generate all", "valid combinations"
 
@@ -138,12 +138,12 @@ This index organizes patterns by the **primary data structure** mentioned in the
 
 **Primary Pattern: Fast & Slow Pointers** (6 variants)
 
-1. **Linked List Cycle** ⭐ - Detect cycle
-2. **Linked List Cycle II** - Find cycle start
-3. **Find Middle of Linked List** ⭐ - One-pass middle
-4. **Palindrome Linked List** - Check palindrome
-5. **Happy Number** - Cycle detection in sequences
-6. **Remove Nth Node From End** - Two-pointer gap
+1. **[Linked List Cycle](../variants/fast_slow_pointers/variant_1_linked_list_cycle.md)** ⭐ - Detect cycle
+2. **[Linked List Cycle II](../variants/fast_slow_pointers/variant_2_linked_list_cycle_ii.md)** - Find cycle start
+3. **[Find Middle of Linked List](../variants/fast_slow_pointers/variant_3_middle_of_linked_list.md)** ⭐ - One-pass middle
+4. **[Palindrome Linked List](../variants/fast_slow_pointers/variant_4_palindrome_linked_list.md)** - Check palindrome
+5. **[Happy Number](../variants/fast_slow_pointers/variant_5_happy_number.md)** - Cycle detection in sequences
+6. **[Remove Nth Node From End](../variants/fast_slow_pointers/variant_6_remove_nth_from_end.md)** - Two-pointer gap
 
 **Key Technique:** 
 - **Slow pointer:** moves 1 step
@@ -193,12 +193,12 @@ This index organizes patterns by the **primary data structure** mentioned in the
 
 **Primary Pattern: Graph Traversal (BFS/DFS)** (6 variants)
 
-1. **Number of Islands** ⭐ - Grid DFS/BFS
-2. **Clone Graph** - DFS with map
-3. **Course Schedule** ⭐ - Topological sort (cycle detection)
-4. **Pacific Atlantic Water Flow** - Multi-source DFS
-5. **Word Ladder** - BFS shortest path
-6. **Network Delay Time** - Dijkstra's algorithm
+1. **[Number of Islands](../variants/graph/variant_1_number_of_islands.md)** ⭐ - Grid DFS/BFS
+2. **[Clone Graph](../variants/graph/variant_2_clone_graph.md)** - DFS with map
+3. **[Course Schedule](../variants/graph/variant_3_course_schedule.md)** ⭐ - Topological sort (cycle detection)
+4. **[Pacific Atlantic Water Flow](../variants/graph/variant_4_pacific_atlantic.md)** - Multi-source DFS
+5. **[Word Ladder](../variants/graph/variant_5_word_ladder.md)** - BFS shortest path
+6. **[Network Delay Time](../variants/graph/variant_6_network_delay_time.md)** - Dijkstra's algorithm
 
 **Choose BFS when:**
 - Shortest path needed (unweighted)
@@ -225,11 +225,11 @@ This index organizes patterns by the **primary data structure** mentioned in the
 
 **Primary Pattern: Intervals / Merging** (5 variants)
 
-1. **Merge Intervals** ⭐ - Collapse overlaps
-2. **Insert Interval** - Merge into sorted list
-3. **Non-Overlapping Intervals** - Minimum removals
-4. **Meeting Rooms II** ⭐ - Count concurrent
-5. **Interval List Intersections** - Find overlaps
+1. **[Merge Intervals](../variants/intervals/variant_1_merge_intervals.md)** ⭐ - Collapse overlaps
+2. **[Insert Interval](../variants/intervals/variant_2_insert_interval.md)** - Merge into sorted list
+3. **[Non-Overlapping Intervals](../variants/intervals/variant_3_non_overlapping_intervals.md)** - Minimum removals
+4. **[Meeting Rooms II](../variants/intervals/variant_4_meeting_rooms_ii.md)** ⭐ - Count concurrent
+5. **[Interval List Intersections](../variants/intervals/variant_5_interval_list_intersections.md)** - Find overlaps
 
 **Key Algorithm:**
 1. Sort by start time - O(n log n)
@@ -251,11 +251,11 @@ This index organizes patterns by the **primary data structure** mentioned in the
 **Primary Patterns:**
 
 #### 1. **Heap / Priority Queue** (5 variants)
-- Kth Largest in Stream
-- Find Median from Stream ⭐
-- Merge K Sorted Lists ⭐
-- Task Scheduler
-- K Closest Points
+- [Kth Largest in Stream](../variants/heap/variant_1_kth_largest_stream.md)
+- [Find Median from Stream](../variants/heap/variant_2_find_median_stream.md) ⭐
+- [Merge K Sorted Lists](../variants/heap/variant_3_merge_k_sorted_lists.md) ⭐
+- [Task Scheduler](../variants/greedy/variant_5_task_scheduler.md)
+- [K Closest Points](../variants/top_k/variant_3_k_closest_points.md)
 
 **Use heap when:**
 - Dynamic ordering (elements added/removed)
@@ -263,10 +263,10 @@ This index organizes patterns by the **primary data structure** mentioned in the
 - Don't need full sort
 
 #### 2. **Top K Elements** (4 variants)
-- Kth Largest Element ⭐
-- Top K Frequent Elements ⭐
-- K Closest Points
-- K Pairs with Smallest Sums
+- [Kth Largest Element](../variants/top_k/variant_1_kth_largest_element.md) ⭐
+- [Top K Frequent Elements](../variants/top_k/variant_2_top_k_frequent.md) ⭐
+- [K Closest Points](../variants/top_k/variant_3_k_closest_points.md)
+- [K Pairs with Smallest Sums](../variants/top_k/variant_4_k_pairs_smallest_sums.md)
 
 **Technique:**
 - **Min-heap of size K** for K largest
@@ -282,11 +282,11 @@ This index organizes patterns by the **primary data structure** mentioned in the
 
 **Primary Pattern: Hash Map / Frequency Counting** (5 variants)
 
-1. **Two Sum** ⭐ - Complement lookup
-2. **Group Anagrams** ⭐ - Group by key
-3. **Subarray Sum Equals K** - Prefix sum frequency
-4. **Longest Consecutive Sequence** - O(1) existence check
-5. **Contains Duplicate II** - Recent index tracking
+1. **[Two Sum](../variants/hash_map/variant_1_two_sum.md)** ⭐ - Complement lookup
+2. **[Group Anagrams](../variants/hash_map/variant_2_group_anagrams.md)** ⭐ - Group by key
+3. **[Subarray Sum Equals K](../variants/hash_map/variant_3_subarray_sum_k.md)** - Prefix sum frequency
+4. **[Longest Consecutive Sequence](../variants/hash_map/variant_4_longest_consecutive.md)** - O(1) existence check
+5. **[Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)** - Recent index tracking
 
 **Use hash map when:**
 - Need O(1) lookup
@@ -309,11 +309,11 @@ This index organizes patterns by the **primary data structure** mentioned in the
 
 **Primary Pattern: Monotonic Stack** (5 variants)
 
-1. **Next Greater Element** ⭐
-2. **Daily Temperatures** ⭐
-3. **Largest Rectangle in Histogram** ⭐
-4. **Next Greater Element II**
-5. **Remove K Digits**
+1. **[Next Greater Element](../variants/monotonic_stack/variant_1_next_greater_element.md)** ⭐
+2. **[Daily Temperatures](../variants/monotonic_stack/variant_2_daily_temperatures.md)** ⭐
+3. **[Largest Rectangle in Histogram](../variants/monotonic_stack/variant_3_largest_rectangle_histogram.md)** ⭐
+4. **[Next Greater Element II](../variants/monotonic_stack/variant_4_next_greater_element_ii.md)**
+5. **[Remove K Digits](../variants/monotonic_stack/variant_5_remove_k_digits.md)**
 
 **Monotonic Property:**
 - **Increasing stack:** Pop when current < top (find smaller)
