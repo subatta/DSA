@@ -49,7 +49,7 @@ int TwoPointersTemplate(int[] nums) {
 ### 🟢 Easy (4 variants)
 **Master basic pointer movement patterns**
 
-1. **[Two Sum II (Sorted Array)](variants/two_pointers/variant_1_two_sum_ii.md)** - LeetCode #167 ⭐
+1. **[Two Sum II (Sorted Array)](variants/two_pointers/variant_1_two_sum_sorted.md)** - LeetCode #167 ⭐
    - **Concept:** Opposite-direction pointers, move based on sum comparison
    - **Complexity:** O(n) time, O(1) space
    - **Why Easy:** Sorted array, clear decision rule for pointer movement
