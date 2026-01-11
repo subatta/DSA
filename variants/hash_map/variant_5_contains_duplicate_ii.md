@@ -11,9 +11,12 @@ Given an integer array `nums` and an integer `k`, return `true` if there are two
 
 ### Step 1: State Space Derivation
 
+**Reference:** See [All Pairs State Space](../../state_spaces/all_pairs.md) for detailed mathematical derivation
+
 **Type:** Find duplicate within distance k  
 **Structure:** All pairs of indices with same value  
-**Cardinality:** Up to n(n-1)/2 pairs to check
+**Cardinality:** Up to n(n-1)/2 pairs to check  
+**Constraint:** Only check pairs where `nums[i] == nums[j]` and `|i - j| ≤ k`
 
 **State Space Example:**
 For `nums = [1, 2, 3, 1]`, `k = 3`:

@@ -128,7 +128,10 @@ This violates sliding window's monotonic property.
 ```
 
 ### **State Space Definition:**
-- **Type**: All non-zero-length contiguous subarrays
+
+**Reference:** See [All Contiguous Subarrays](../../state_spaces/all_contiguous_subarrays.md) for detailed mathematical derivation
+
+- **Type**: All contiguous subarrays (includes single elements)
 - **Structure**: Linear sequences `[start, end]` where `0 ≤ start ≤ end < n`
 - **Cardinality**: n(n+1)/2 subarrays = **O(n²)**
 - **Generation**: Need smarter approach than nested loops

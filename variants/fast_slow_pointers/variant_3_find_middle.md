@@ -15,13 +15,13 @@ Example: `1→2→3→4→5` returns node 3, `1→2→3→4→5→6` returns nod
 ```
 Case 1: Odd length (n=5)
 1 → 2 → 3 → 4 → 5
-         ↑
+        ↑
       middle
 Return node 3 (index 2)
 
 Case 2: Even length (n=6)
 1 → 2 → 3 → 4 → 5 → 6
-              ↑
+            ↑
       second middle
 Return node 4 (index 3)
 
@@ -31,13 +31,13 @@ Initial: slow=1, fast=1
 
 Step 1: slow moves 1, fast moves 2
   1 → 2 → 3 → 4 → 5
-       ↑       ↑
+      ↑       ↑
      slow     fast
 
 Step 2: slow moves 1, fast moves 2
   1 → 2 → 3 → 4 → 5
-            ↑       ↑
-          slow   fast (null)
+          ↑         ↑
+          slow      fast (null)
           
 When fast reaches end, slow is at middle!
 ```

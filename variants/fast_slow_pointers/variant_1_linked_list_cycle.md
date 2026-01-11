@@ -19,8 +19,8 @@ Traversal ends at null
 
 Case 2: Cycle Exists
 1 → 2 → 3 → 4 → 5
-         ↑           ↓
-         └─────────┘
+        ↑       ↓
+        └───────┘
 Traversal path: 1 → 2 → 3 → 4 → 5 → 3 → 4 → 5 → 3 ... (infinite)
 
 With two pointers moving at different speeds:
@@ -196,7 +196,8 @@ After k iterations: gap = 0 → they meet!
 ```csharp
 public bool HasCycle_Optimal(ListNode head)
 {
-    // Edge case: empty or single node
+    // Edge case: need at least 2 nodes for a cycle
+    // (empty list or single node cannot have a cycle)
     if (head == null || head.next == null)
         return false;
     

@@ -25,6 +25,9 @@ Given a **1-indexed** array of integers `numbers` that is **sorted in ascending 
 - Must return 1-indexed positions
 
 ### **State Space Definition:**
+
+**Reference:** See [All Pairs State Space](../../state_spaces/all_pairs.md) for detailed mathematical derivation
+
 - **Type**: All pairs of two **different** elements
 - **Structure**: Pairs (i, j) where `0 ≤ i < j < n`
 - **Cardinality**: n(n-1)/2 pairs = **O(n²)**

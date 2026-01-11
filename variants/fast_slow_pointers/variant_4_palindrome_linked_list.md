@@ -19,15 +19,15 @@ Strategy: Compare first half with reversed second half
 
 Step 1: Find middle
   1 → 2 → 3 → 2 → 1
-            ↑
-         middle
+          ↑
+        middle
 
 Step 2: Reverse second half
   First:  1 → 2 → 3
   Second: 1 ← 2 (reversed from 2→1)
   
 Step 3: Compare
-  1 → 2 → 3       1 ← 2
+  1 → 2 → 3      1 ← 2
   ↑              ↑
   p1             p2
   

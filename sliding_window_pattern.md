@@ -38,12 +38,12 @@ for (int right = 0; right < arr.Length; right++)
 // return result;
 ```
 
-## Pattern Variants (8 Total)
+## Pattern Variants (7 Total)
 
 ### 🟢 Easy (1 variant)
 **Master the fundamentals of fixed-size windows**
 
-1. **[Maximum Sum Subarray of Size K](variants/sliding_window/variant_8_max_sum_subarray_size_k.md)** - Fixed window
+1. **[Maximum Sum Subarray of Size K](variants/sliding_window/variant_2_max_sum_size_k.md)** - Fixed window
    - **Concept:** Slide fixed-size window, maintain sum incrementally
    - **Complexity:** O(n) time, O(1) space
    - **Why Easy:** Straightforward add/remove, no shrinking logic
@@ -56,7 +56,7 @@ for (int right = 0; right < arr.Length; right++)
    - **Complexity:** O(n) time, O(k) space (k = distinct chars)
    - **Why Medium:** Variable window + hash set for tracking
 
-3. **[Subarray Product Less Than K](variants/sliding_window/variant_2_subarray_product_less_k.md)** - LeetCode #713
+3. **[Subarray Product Less Than K](variants/sliding_window/variant_4_subarray_product_less_k.md)** - LeetCode #713
    - **Concept:** Shrink when product ≥ k, count with formula
    - **Complexity:** O(n) time, O(1) space
    - **Why Medium:** Counting formula insight: `right - left + 1`
@@ -71,7 +71,7 @@ for (int right = 0; right < arr.Length; right++)
    - **Complexity:** O(n) time, O(k) space
    - **Why Medium:** Hybrid - sliding window + hash map
 
-### 🔴 Hard (3 variants)
+### 🔴 Hard (2 variants)
 **Master complex hybrid techniques and edge cases**
 
 6. **[Minimum Window Substring](variants/sliding_window/variant_3_min_window_substring.md)** - LeetCode #76 ⭐⭐
@@ -83,11 +83,6 @@ for (int right = 0; right < arr.Length; right++)
    - **Concept:** Monotonic deque removes dominated elements
    - **Complexity:** O(n) time, O(k) space
    - **Why Hard:** Non-intuitive data structure choice (deque)
-
-8. **[Find All Anagrams in String](variants/sliding_window/variant_4_find_all_anagrams.md)** - LeetCode #438
-   - **Concept:** Fixed-size window with frequency matching
-   - **Complexity:** O(n) time, O(1) space (26 letters)
-   - **Why Hard:** Efficient frequency comparison technique
 
 ### Practice Progression
 1. Start with **Maximum Sum** (#1) - learn fixed windows

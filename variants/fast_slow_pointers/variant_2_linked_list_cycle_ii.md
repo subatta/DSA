@@ -16,8 +16,8 @@ Given the head of a linked list, return the node where the cycle begins. If ther
 Linked list with cycle:
 
 1 → 2 → 3 → 4 → 5 → 6
-         ↑           ↓
-         └─────────┘
+        ↑           ↓
+        └───────────┘
 
 Terminology:
 - Head: node 1

@@ -37,7 +37,20 @@ Output: [[1]]
 
 ## Step 1: State Space
 
-### Problem Visualization
+### Problem Analysis
+
+**Input:** Array `nums` of `n` unique elements  
+**Output:** All possible orderings (permutations)
+
+### State Space Definition
+
+**Reference:** See [All Permutations](../../state_spaces/all_permutations.md) for detailed mathematical derivation
+
+- **Type**: All possible orderings of n elements
+- **Structure**: Sequences where order matters, all elements appear exactly once
+- **Cardinality**: n! permutations = **O(n!)**
+
+### Full State Space Enumeration
 
 Input: `nums = [1,2,3]`
 

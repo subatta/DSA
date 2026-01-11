@@ -48,6 +48,8 @@ for (int start = 0; start < n; start++)
 ## **State Space Categories**
 
 ### **1. All Pairs: O(n²)**
+
+**Reference:** See [All Pairs State Space](../state_spaces/all_pairs.md) for comprehensive mathematical derivation
 Problems requiring **two distinct elements** from the array.
 
 **Characteristics:**
@@ -70,6 +72,9 @@ Problems requiring **two distinct elements** from the array.
 ---
 
 ### **2. All Contiguous Subarrays: O(n²)**
+
+**Reference:** See [All Contiguous Subarrays State Space](../state_spaces/all_contiguous_subarrays.md) for comprehensive mathematical derivation
+
 Problems where **single elements are valid subarrays** and sequences must be contiguous.
 
 **Characteristics:**
@@ -122,6 +127,9 @@ Problems where **single elements are valid subarrays** and sequences must be con
 ---
 
 ### **3. All Subsets: O(2ⁿ)**
+
+**Reference:** See [All Subsets (Power Set) State Space](../state_spaces/all_subsets.md) for comprehensive mathematical derivation
+
 Problems that generate all possible subsets (power set).
 
 **Characteristics:**
@@ -131,8 +139,8 @@ Problems that generate all possible subsets (power set).
 
 | Problem | State Space | Technique | Notes |
 |---------|-------------|-----------|-------|
-| Generate All Subsets | 2ⁿ subsets | Backtracking | Can't reduce below O(2ⁿ) if generating all |
-| Combination Sum | 2ⁿ combinations | Backtracking | Prune invalid branches |
+| [Generate All Subsets](../variants/backtracking/variant_1_subsets.md) | 2ⁿ subsets | Backtracking | Can't reduce below O(2ⁿ) if generating all |
+| [Combination Sum](../variants/backtracking/variant_3_combination_sum.md) | 2ⁿ combinations | Backtracking | Prune invalid branches |
 | Subset Sum | 2ⁿ subsets | Backtracking or DP | DP for decision, not generation |
 | Partition Equal Subset | 2ⁿ partitions | DP | O(n·sum) decision problem |
 
@@ -141,6 +149,9 @@ Problems that generate all possible subsets (power set).
 ---
 
 ### **4. All Permutations: O(n!)**
+
+**Reference:** See [All Permutations State Space](../state_spaces/all_permutations.md) for comprehensive mathematical derivation
+
 Problems that generate all orderings of elements.
 
 **Characteristics:**
@@ -150,8 +161,8 @@ Problems that generate all orderings of elements.
 
 | Problem | State Space | Technique | Notes |
 |---------|-------------|-----------|-------|
-| Generate All Permutations | n! permutations | Backtracking | Can't reduce if generating all |
-| N-Queens | n! placements | Backtracking | Massive pruning via constraints |
+| [Generate All Permutations](../variants/backtracking/variant_2_permutations.md) | n! permutations | Backtracking | Can't reduce if generating all |
+| [N-Queens](../variants/backtracking/variant_4_n_queens.md) | n! placements | Backtracking | Massive pruning via constraints |
 | Traveling Salesman | n! routes | DP + Bitmask | → O(2ⁿ·n²) with DP |
 | Sudoku Solver | 9⁸¹ states | Backtracking | Constraints eliminate most |
 

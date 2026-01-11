@@ -23,7 +23,10 @@ Given a string `s`, find the length of the longest substring without repeating c
 - Need to check **all possible substrings** to find the longest valid one
 
 ### **State Space Definition:**
-- **Type**: All non-zero-length contiguous substrings
+
+**Reference:** See [All Contiguous Subarrays](../../state_spaces/all_contiguous_subarrays.md) for detailed mathematical derivation
+
+- **Type**: All contiguous substrings (includes single characters)
 - **Structure**: Linear sequences `[start, end]` where `0 ≤ start ≤ end < n`
 - **Cardinality**: n(n+1)/2 substrings = **O(n²)**
 - **Generation**: Nested loops - outer loop for start index, inner for end index

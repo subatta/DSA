@@ -27,7 +27,10 @@ Given an array of positive integers `nums` and a positive integer `target`, retu
 - Need to track both length and sum
 
 ### **State Space Definition:**
-- **Type**: All non-zero-length contiguous subarrays
+
+**Reference:** See [All Contiguous Subarrays](../../state_spaces/all_contiguous_subarrays.md) for detailed mathematical derivation
+
+- **Type**: All contiguous subarrays (includes single elements)
 - **Structure**: Linear sequences `[start, end]` where `0 ≤ start ≤ end < n`
 - **Cardinality**: n(n+1)/2 subarrays = **O(n²)**
 - **Generation**: Nested loops - outer for start, inner for end

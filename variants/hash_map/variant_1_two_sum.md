@@ -13,30 +13,33 @@ You may assume that each input would have **exactly one solution**, and you may 
 
 ### Step 1: State Space Derivation
 
-### **Problem Visualization:**
+### **Problem Analysis:**
+- Find two **different** numbers that sum to target
+- Array is unsorted
+- Return 0-indexed positions
+
+### **State Space Definition:**
+
+**Reference:** See [All Pairs State Space](../../state_spaces/all_pairs.md) for detailed mathematical derivation
+
+- **Type:** All pairs of two **different** elements  
+- **Structure:** Pairs (i, j) where `0 ≤ i < j < n`  
+- **Cardinality:** n(n-1)/2 pairs = **O(n²)**
+- **Generation:** Nested loops - outer for first element, inner for second
+
+### **Full State Space Enumeration:**
+For `nums = [2, 7, 11, 15]` (n=4), target = 9, there are 4×3/2 = **6 pairs**:
+
 ```
-Input: nums = [2, 7, 11, 15], target = 9
-
-Goal: Find indices i, j where nums[i] + nums[j] = 9
-
 All pairs to check:
-  nums[0] + nums[1] = 2 + 7  = 9  ✓ Found!
-  nums[0] + nums[2] = 2 + 11 = 13
-  nums[0] + nums[3] = 2 + 15 = 17
-  nums[1] + nums[2] = 7 + 11 = 18
-  nums[1] + nums[3] = 7 + 15 = 22
-  nums[2] + nums[3] = 11 + 15 = 26
+(0,1): 2+7=9   ✅ (answer)
+(0,2): 2+11=13
+(0,3): 2+15=17
+(1,2): 7+11=18
+(1,3): 7+15=22
+(2,3): 11+15=26
 
-Brute force: Check all 6 pairs → O(n²)
-
-Optimized thinking:
-  When processing nums[0] = 2:
-    Need complement: 9 - 2 = 7
-    Is 7 in array? → O(n) linear search
-    
-  Better: Use hash map for O(1) lookup
-    When processing 2: Check if 7 exists in map
-    Store: {value → index} for O(1) complement search
+Total: 6 pairs
 ```
 
 ### **Core Question:**
@@ -61,39 +64,16 @@ Can we avoid checking all O(n²) pairs?
   2. Otherwise, add nums[i] to map for future lookups
 - Why this works: if answer is (i, j) where i < j, when we reach j we'll find i in the map
 
-### **State Space Structure:**
+**Key Optimization Insight:**  
+Unlike sorted Two Sum (which uses two pointers to prune the search space geometrically), the **unsorted variant uses hash map for O(1) complement lookup** to avoid explicitly checking all O(n²) pairs.
 
-**Type:** Find two distinct indices where values sum to target  
-**Structure:** All possible pairs of indices (i, j) where i < j  
-**Cardinality:** n(n-1)/2 pairs (requires two different elements)
-
-**State Space Example:**
-For `nums = [2, 7, 11, 15]`, `target = 9`:
-
+**Hash Map Optimization Example:**
+Instead of checking all pairs, we check for each element:
 ```
-All pairs:
-(0,1): 2+7=9 ✅
-(0,2): 2+11=13
-(0,3): 2+15=17
-(1,2): 7+11=18
-(1,3): 7+15=22
-(2,3): 11+15=26
+i=0: nums[0]=2, need 7, map={} → not found, add {2→0}
+i=1: nums[1]=7, need 2, map={2→0} → FOUND at index 0! Return [0,1]
 
-Total: 4×3/2 = 6 pairs
-```
-
-**Generation Pattern:**
-```csharp
-void GenerateAllPairs(int[] nums)
-{
-    for (int i = 0; i < nums.Length; i++)
-    {
-        for (int j = i + 1; j < nums.Length; j++)
-        {
-            // Check if nums[i] + nums[j] == target
-        }
-    }
-}
+Total: 2 lookups instead of 6 pair checks
 ```
 
 ---

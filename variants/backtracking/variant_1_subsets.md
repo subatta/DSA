@@ -33,7 +33,20 @@ Output: [[],[0]]
 
 ## Step 1: State Space
 
-### Problem Visualization
+### Problem Analysis
+
+**Input:** Array `nums` of `n` unique elements  
+**Output:** All possible subsets (power set)
+
+### State Space Definition
+
+**Reference:** See [All Subsets (Power Set)](../../state_spaces/all_subsets.md) for detailed mathematical derivation
+
+- **Type**: All possible combinations of elements (binary choice for each)
+- **Structure**: Each element can be included or excluded
+- **Cardinality**: 2^n subsets = **O(2^n)**
+
+### Full State Space Enumeration
 
 Input: `nums = [1,2,3]`
 

@@ -11,6 +11,18 @@ Given an array of integers `nums` and an integer `k`, return the total number of
 
 ### Step 1: State Space Derivation
 
+### **Problem Analysis:**
+Count all contiguous subarrays whose sum equals k
+
+### **State Space Definition:**
+
+**Reference:** See [All Contiguous Subarrays](../../state_spaces/all_contiguous_subarrays.md) for detailed mathematical derivation
+
+- **Type**: All contiguous subarrays (includes single elements)
+- **Structure**: Linear sequences `[start, end]` where `0 ≤ start ≤ end < n`
+- **Cardinality**: n(n+1)/2 subarrays = **O(n²)**
+- **Generation**: Nested loops or prefix sum optimization
+
 ### **Problem Visualization:**
 ```
 Input: nums = [1, 2, 3], k = 3
