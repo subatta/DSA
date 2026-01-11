@@ -33,20 +33,45 @@ Dictionary<T, int> FrequencyCountTemplate(IEnumerable<T> input) {
 }
 ```
 
-## Variant Deep Dives
+## Pattern Variants (5 Total)
 
-Each variant demonstrates the Hash Map pattern with a 4-step analysis framework:
+### 🟢 Easy (2 variants)
+**Master O(1) lookup and basic frequency tracking**
 
-### Basic Lookup Variants
-- [Variant #1: Two Sum](variants/hash_map/variant_1_two_sum.md) - O(n²) → O(n) via complement lookup
-- [Variant #5: Contains Duplicate II](variants/hash_map/variant_5_contains_duplicate_ii.md) - Track recent indices within distance k
+1. **[Two Sum](variants/hash_map/variant_1_two_sum.md)** - LeetCode #1 ⭐⭐
+   - **Concept:** Store complement, check if current value exists
+   - **Complexity:** O(n) time, O(n) space
+   - **Why Easy:** Single-pass, simple lookup, most famous interview problem
 
-### Grouping / Frequency Variants
-- [Variant #2: Group Anagrams](variants/hash_map/variant_2_group_anagrams.md) - Group by character frequency signature
-- [Variant #4: Longest Consecutive Sequence](variants/hash_map/variant_4_longest_consecutive_sequence.md) - Hash set for O(1) existence checks
+2. **[Contains Duplicate II](variants/hash_map/variant_5_contains_duplicate_ii.md)** - LeetCode #219
+   - **Concept:** Track most recent index of each value
+   - **Complexity:** O(n) time, O(n) space
+   - **Why Easy:** Simple index tracking, distance check
 
-### Prefix Sum + Hash Map Variants
-- [Variant #3: Subarray Sum Equals K](variants/hash_map/variant_3_subarray_sum_equals_k.md) - Count subarrays via prefix sum frequency
+### 🟡 Medium (3 variants)
+**Learn grouping, frequency patterns, and advanced techniques**
+
+3. **[Group Anagrams](variants/hash_map/variant_2_group_anagrams.md)** - LeetCode #49 ⭐
+   - **Concept:** Use sorted string or frequency array as key
+   - **Complexity:** O(n × k log k) time, O(n × k) space (k = string length)
+   - **Why Medium:** Choosing right key representation
+
+4. **[Subarray Sum Equals K](variants/hash_map/variant_3_subarray_sum_k.md)** - LeetCode #560 ⭐⭐
+   - **Concept:** Prefix sum + hash map for O(n) counting
+   - **Complexity:** O(n) time, O(n) space
+   - **Why Medium:** Non-obvious prefix sum insight, frequency counting
+
+5. **[Longest Consecutive Sequence](variants/hash_map/variant_4_longest_consecutive.md)** - LeetCode #128
+   - **Concept:** Hash set for O(1) existence, only start from sequence beginnings
+   - **Complexity:** O(n) time, O(n) space
+   - **Why Medium:** Optimization to avoid redundant checks
+
+### Practice Progression
+1. Start with **Two Sum** (#1) - most fundamental hash map problem
+2. Practice **Contains Duplicate II** (#2) - index tracking
+3. Learn **Group Anagrams** (#3) - key design pattern
+4. Master **Subarray Sum** (#4) - prefix sum technique (hardest)
+5. Complete **Longest Consecutive** (#5) - sequence building
 
 ---
 

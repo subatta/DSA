@@ -51,26 +51,48 @@ bool HasCycle(ListNode head)
 }
 ```
 
-## Variant Deep Dives
+## Pattern Variants (6 Total)
 
-Each variant demonstrates the Fast & Slow Pointers pattern with a 4-step analysis framework:
+### 🟢 Easy (4 variants)
+**Build cycle detection and two-pointer intuition**
 
-### Cycle Detection Variants
-- [Variant #1: Linked List Cycle](variants/fast_slow_pointers/variant_1_linked_list_cycle.md) - Detect if cycle exists (Floyd's basic algorithm)
-- [Variant #2: Linked List Cycle II](variants/fast_slow_pointers/variant_2_linked_list_cycle_ii.md) - Find where cycle begins (two-phase approach)
-- [Variant #5: Happy Number](variants/fast_slow_pointers/variant_5_happy_number.md) - Cycle detection in number sequences
+1. **[Find Middle of Linked List](variants/fast_slow_pointers/variant_3_find_middle.md)** - LeetCode #876
+   - **Concept:** Fast pointer at 2x speed reaches end when slow is at middle
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Easy:** Single-pass, no cycle handling, direct application
 
-### List Navigation Variants
-- [Variant #3: Find Middle of Linked List](variants/fast_slow_pointers/variant_3_find_middle.md) - One-pass middle finding
-- [Variant #6: Remove Nth Node From End](variants/fast_slow_pointers/variant_6_remove_nth_from_end.md) - Gap-based two pointers
+2. **[Linked List Cycle](variants/fast_slow_pointers/variant_1_linked_list_cycle.md)** - LeetCode #141 ⭐
+   - **Concept:** If cycle exists, fast catches slow (Floyd's algorithm)
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Easy:** Core pattern application, boolean result
 
-### Combined Technique Variants
-- [Variant #4: Palindrome Linked List](variants/fast_slow_pointers/variant_4_palindrome_linked_list.md) - Combines middle-finding + reversal + comparison
+3. **[Palindrome Linked List](variants/fast_slow_pointers/variant_4_palindrome_linked_list.md)** - LeetCode #234
+   - **Concept:** Find middle, reverse second half, compare
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Easy:** Combines middle-finding with standard list reversal
 
----
+4. **[Happy Number](variants/fast_slow_pointers/variant_5_happy_number.md)** - LeetCode #202
+   - **Concept:** Cycle detection in number transformation sequence
+   - **Complexity:** O(log n) time, O(1) space
+   - **Why Easy:** Pattern recognition - sequence = implicit linked list
 
-**Note:** The embedded variant content has been moved to individual files for better organization. Each file contains:
-1. State Space Derivation (cardinality, structure, generation)
-2. Brute Force with Value Tracing
-3. Pruning Analysis (can we do better?)
-4. Optimal Solution with Skeleton Transformation
+### 🟡 Medium (2 variants)
+**Master cycle location and gap-based techniques**
+
+5. **[Linked List Cycle II](variants/fast_slow_pointers/variant_2_linked_list_cycle_ii.md)** - LeetCode #142
+   - **Concept:** Two-phase: detect cycle, then find entry point
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Medium:** Requires mathematical insight about meeting point distances
+
+6. **[Remove Nth Node From End](variants/fast_slow_pointers/variant_6_remove_nth_from_end.md)** - LeetCode #19
+   - **Concept:** Gap-based pointers (n+1 apart) for one-pass removal
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Medium:** Requires dummy node, careful pointer manipulation
+
+### Practice Progression
+1. Start with **Find Middle** (#3) - simplest application
+2. Master **Linked List Cycle** (#1) - core cycle detection
+3. Apply to sequences with **Happy Number** (#5)
+4. Learn multi-step with **Palindrome Linked List** (#4)
+5. Advance to **Cycle II** (#2) - mathematical reasoning
+6. Complete with **Remove Nth** (#6) - gap technique variation

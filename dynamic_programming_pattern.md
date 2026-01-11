@@ -50,71 +50,64 @@ Think of DP as **filling a table** where:
 
 ## Pattern Variants (8 Total)
 
-### Variant 1: Climbing Stairs
-**Problem:** Count ways to climb n steps (1 or 2 steps at a time)
-**Key Technique:** Fibonacci recurrence, space optimization
-**Complexity:** O(n) time, O(1) space
-**Link:** [variant_1_climbing_stairs.md](variants/dp_1d/variant_1_climbing_stairs.md)
+### 🟢 Easy (1 variant)
+**Build DP fundamentals**
 
-### Variant 2: House Robber
-**Problem:** Maximum sum from non-adjacent elements
-**Key Technique:** Binary choice (rob or skip), track both options
-**Complexity:** O(n) time, O(1) space
-**Link:** [variant_2_house_robber.md](variants/dp_1d/variant_2_house_robber.md)
+1. **[Climbing Stairs](variants/dp_1d/variant_1_climbing_stairs.md)** - LeetCode #70 ⭐
+   - **Concept:** Fibonacci recurrence, count ways to reach step
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Easy:** Simple recurrence, classic DP introduction
 
-### Variant 3: Coin Change
-**Problem:** Minimum coins to make target amount
-**Key Technique:** Unbounded knapsack, minimization
-**Complexity:** O(amount × coins) time, O(amount) space
-**Link:** [variant_3_coin_change.md](variants/dp_1d/variant_3_coin_change.md)
+### 🟡 Medium (6 variants)
+**Master core DP patterns**
 
-### Variant 4: Longest Increasing Subsequence
-**Problem:** Length of longest strictly increasing subsequence
-**Key Technique:** O(n²) DP or O(n log n) with binary search + greedy
-**Complexity:** O(n²) or O(n log n) time
-**Link:** [variant_4_longest_increasing_subsequence.md](variants/dp_1d/variant_4_longest_increasing_subsequence.md)
+2. **[House Robber](variants/dp_1d/variant_2_house_robber.md)** - LeetCode #198 ⭐
+   - **Concept:** Binary choice (rob or skip), track max at each house
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Medium:** Non-adjacent constraint, choice-based DP
 
-### Variant 5: Maximum Subarray (Kadane's Algorithm)
-**Problem:** Maximum sum of contiguous subarray
-**Key Technique:** Running state - extend current or restart
-**Complexity:** O(n) time, O(1) space
-**Link:** [variant_5_maximum_subarray.md](variants/dp_1d/variant_5_maximum_subarray.md)
+3. **[Coin Change](variants/dp_1d/variant_3_coin_change.md)** - LeetCode #322 ⭐⭐
+   - **Concept:** Unbounded knapsack, minimize coins to make amount
+   - **Complexity:** O(amount × coins) time, O(amount) space
+   - **Why Medium:** Minimization, unbounded choices
 
-### Variant 6: Word Break
-**Problem:** Can string be segmented into dictionary words?
-**Key Technique:** String DP, check all valid breaks
-**Complexity:** O(n² × L) where L = avg word length
-**Link:** [variant_6_word_break.md](variants/dp_1d/variant_6_word_break.md)
+4. **[Maximum Subarray (Kadane's Algorithm)](variants/dp_1d/variant_5_maximum_subarray.md)** - LeetCode #53 ⭐
+   - **Concept:** Running max - extend current or restart at element
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Medium:** Non-obvious recurrence, space-optimized
 
-### Variant 7: Decode Ways
-**Problem:** Count ways to decode digit string
-**Key Technique:** Count valid 1-digit and 2-digit decodings
-**Complexity:** O(n) time, O(1) space
-**Link:** [variant_7_decode_ways.md](variants/dp_1d/variant_7_decode_ways.md)
+5. **[Word Break](variants/dp_1d/variant_6_word_break.md)** - LeetCode #139 ⭐⭐
+   - **Concept:** String DP, check if valid segmentation exists
+   - **Complexity:** O(n² × L) time where L = avg word length
+   - **Why Medium:** String partitioning, set lookup
 
-### Variant 8: Jump Game II
-**Problem:** Minimum jumps to reach end of array
-**Key Technique:** BFS levels or greedy range extension
-**Complexity:** O(n) time, O(1) space
-**Link:** [variant_8_jump_game_ii.md](variants/dp_1d/variant_8_jump_game_ii.md)
+6. **[Decode Ways](variants/dp_1d/variant_7_decode_ways.md)** - LeetCode #91
+   - **Concept:** Count valid 1-digit and 2-digit decodings
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Medium:** Edge cases (leading zeros, constraints)
 
----
+7. **[Jump Game II](variants/dp_1d/variant_8_jump_game_ii.md)** - LeetCode #45
+   - **Concept:** BFS levels or greedy range extension
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Medium:** Multiple approaches (DP, greedy, BFS)
 
-## Practice Progression
+### 🔴 Hard (1 variant)
+**Master optimization techniques**
 
-**Start with:**
-1. Climbing Stairs (introduces Fibonacci pattern)
-2. House Robber (introduces choice-based DP)
-3. Maximum Subarray (Kadane's algorithm)
+4. **[Longest Increasing Subsequence](variants/dp_1d/variant_4_longest_increasing_subsequence.md)** - LeetCode #300 ⭐
+   - **Concept:** O(n²) DP or O(n log n) with binary search + greedy
+   - **Complexity:** O(n log n) time optimal, O(n) space
+   - **Why Hard:** Non-obvious binary search optimization
 
-**Build to:**
-4. Coin Change (unbounded knapsack intro)
-5. Word Break (string DP)
-6. Decode Ways (counting with constraints)
-
-**Master with:**
-7. Longest Increasing Subsequence (both approaches)
-8. Jump Game II (optimization techniques)
+### Practice Progression
+1. Start with **Climbing Stairs** (#1) - introduces Fibonacci pattern
+2. Practice **House Robber** (#2) - introduces choice-based DP
+3. Master **Maximum Subarray** (#5) - Kadane's algorithm
+4. Learn **Coin Change** (#3) - unbounded knapsack
+5. Advance to **Word Break** (#6) - string DP
+6. Practice **Decode Ways** (#7) - counting with constraints
+7. Tackle **Longest Increasing Subsequence** (#4) - optimization
+8. Complete **Jump Game II** (#8) - multiple approaches
 
 ---
 

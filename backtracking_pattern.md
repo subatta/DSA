@@ -56,61 +56,60 @@ void Backtrack(state, choices) {
 
 ## Pattern Variants (7 Total)
 
-### Variant 1: Subsets
-**Problem:** Generate all possible subsets (power set)
-**Key Technique:** Include/exclude each element, use startIndex
-**Complexity:** O(n × 2^n)
-**Link:** [variant_1_subsets.md](variants/backtracking/variant_1_subsets.md)
+### 🟢 Easy (0 variants)
+**Note:** Backtracking problems typically start at Medium difficulty due to recursive complexity
 
-### Variant 2: Permutations
-**Problem:** Generate all orderings of elements
-**Key Technique:** Track used elements or swap technique
-**Complexity:** O(n × n!)
-**Link:** [variant_2_permutations.md](variants/backtracking/variant_2_permutations.md)
+### 🟡 Medium (5 variants)
+**Master core backtracking techniques**
 
-### Variant 3: Combination Sum
-**Problem:** Find combinations summing to target (unlimited reuse)
-**Key Technique:** Allow element reuse, prune when exceed target
-**Complexity:** O(N^(T/M)) where T=target, M=min element
-**Link:** [variant_3_combination_sum.md](variants/backtracking/variant_3_combination_sum.md)
+1. **[Subsets](variants/backtracking/variant_1_subsets.md)** - LeetCode #78 ⭐
+   - **Concept:** Include/exclude each element, generate all 2ⁿ subsets
+   - **Complexity:** O(n × 2ⁿ) time, O(n) space (recursion depth)
+   - **Why Medium:** Core template, simplest backtracking pattern
 
-### Variant 4: N-Queens
-**Problem:** Place N queens on board with no attacks
-**Key Technique:** Row-by-row placement, track columns & diagonals
-**Complexity:** O(N!)
-**Link:** [variant_4_n_queens.md](variants/backtracking/variant_4_n_queens.md)
+2. **[Generate Parentheses](variants/backtracking/variant_2_generate_parentheses.md)** - LeetCode #22
+   - **Concept:** Track open/close counts, enforce constraints
+   - **Complexity:** O(4ⁿ / √n) time (Catalan number), O(n) space
+   - **Why Medium:** Constraint-based generation, pruning logic
 
-### Variant 5: Palindrome Partitioning
-**Problem:** Partition string into all-palindrome substrings
-**Key Technique:** Try all cut positions, validate palindromes
-**Complexity:** O(n × 2^n)
-**Link:** [variant_5_palindrome_partitioning.md](variants/backtracking/variant_5_palindrome_partitioning.md)
+3. **[Permutations](variants/backtracking/variant_3_permutations.md)** - LeetCode #46 ⭐
+   - **Concept:** Track used elements or swap technique
+   - **Complexity:** O(n × n!) time, O(n) space
+   - **Why Medium:** Ordering matters, need to track used elements
 
-### Variant 6: Word Search
-**Problem:** Find word path in grid
-**Key Technique:** DFS from each start cell, mark visited in-place
-**Complexity:** O(m × n × 4^L) where L=word length
-**Link:** [variant_6_word_search.md](variants/backtracking/variant_6_word_search.md)
+5. **[Palindrome Partitioning](variants/backtracking/variant_5_palindrome_partitioning.md)** - LeetCode #131
+   - **Concept:** Try all cut positions, validate palindromes
+   - **Complexity:** O(n × 2ⁿ) time, O(n) space
+   - **Why Medium:** Partitioning with validation step
 
-### Variant 7: Generate Parentheses
-**Problem:** Generate all valid parentheses combinations
-**Key Technique:** Track open/close counts, enforce constraints
-**Complexity:** O(4^n / √n) - Catalan number
-**Link:** [variant_7_generate_parentheses.md](variants/backtracking/variant_7_generate_parentheses.md)
+6. **[Combination Sum](variants/backtracking/variant_7_combination_sum.md)** - LeetCode #39
+   - **Concept:** Allow element reuse, prune when exceed target
+   - **Complexity:** O(N^(T/M)) time where T=target, M=min element
+   - **Why Medium:** Target-based pruning, unbounded choices
+
+### 🔴 Hard (2 variants)
+**Master advanced constraints and optimizations**
+
+4. **[N-Queens](variants/backtracking/variant_4_n_queens.md)** - LeetCode #51 ⭐⭐
+   - **Concept:** Row-by-row placement, track columns & diagonals efficiently
+   - **Complexity:** O(N!) time, O(N) space
+   - **Why Hard:** Complex constraint satisfaction, diagonal tracking
+
+7. **[Word Search](variants/backtracking/variant_6_word_search.md)** - LeetCode #79
+   - **Concept:** 4-directional DFS, mark visited in-place
+   - **Complexity:** O(m × n × 4^L) time where L=word length
+   - **Why Hard:** Grid-based, backtrack visited state, many edge cases
+
+### Practice Progression
+1. Start with **Subsets** (#1) - simplest backtracking template
+2. Practice **Generate Parentheses** (#2) - constraint-based pruning
+3. Master **Permutations** (#3) - tracking used elements
+4. Learn **Combination Sum** (#6) - target-based with reuse
+5. Advance to **Palindrome Partitioning** (#5) - partitioning technique
+6. Tackle **N-Queens** (#4) - complex constraints
+7. Complete **Word Search** (#7) - grid backtracking
 
 ---
-
-## Practice Progression
-
-**Recommended Learning Order:**
-
-1. **Start with Variant #1 (Subsets)** - Simplest, introduces basic backtracking
-2. **Then Variant #2 (Permutations)** - Adds "used" tracking concept
-3. **Then Variant #7 (Generate Parentheses)** - Introduces constraint-based generation
-4. **Then Variant #3 (Combination Sum)** - Target-based with pruning
-5. **Then Variant #5 (Palindrome Partitioning)** - Partitioning with validation
-6. **Then Variant #6 (Word Search)** - Grid-based path finding
-7. **Finally Variant #4 (N-Queens)** - Complex constraint satisfaction
 
 <details>
 <summary><b>Variant #1: Generate All Subsets (Power Set)</b></summary>

@@ -38,50 +38,64 @@ for (int right = 0; right < arr.Length; right++)
 // return result;
 ```
 
-## Pattern Variants:
+## Pattern Variants (8 Total)
 
-This pattern has 8 main variants organized by window type and auxiliary data structures:
+### 🟢 Easy (1 variant)
+**Master the fundamentals of fixed-size windows**
 
-### Fixed-Size Window:
-1. **[Maximum Sum Subarray of Size K](variants/sliding_window/variant_2_max_sum_size_k.md)** - Easy
-   - Find maximum sum in fixed window of size k
-   - State Space: O(n) windows (n-k+1)
-   - Incremental update: O(1) per slide vs O(k) recalculation
+1. **[Maximum Sum Subarray of Size K](variants/sliding_window/variant_8_max_sum_subarray_size_k.md)** - Fixed window
+   - **Concept:** Slide fixed-size window, maintain sum incrementally
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Easy:** Straightforward add/remove, no shrinking logic
 
-### Variable-Size Window (Pure Sliding Window):
-2. **[Longest Substring Without Repeating Characters](variants/sliding_window/variant_1_longest_substring_no_repeat.md)** - LeetCode #3, Medium
-   - Find longest substring with all distinct characters
-   - State Space: O(n²) substrings → O(n) with hash set tracking
-   
-3. **[Subarray Product Less Than K](variants/sliding_window/variant_4_subarray_product_less_k.md)** - LeetCode #713, Medium
-   - Count subarrays where product < k
-   - Uses counting formula: `right - left + 1`
-   
-4. **[Minimum Size Subarray Sum](variants/sliding_window/variant_5_min_size_subarray_sum.md)** - LeetCode #209, Medium
-   - Find shortest subarray with sum ≥ target (positive integers only)
-   - "Grow-then-shrink" minimization pattern
+### 🟡 Medium (4 variants)
+**Learn variable-size windows and hybrid techniques**
 
-5. **[Minimum Size Subarray Sum (With Negative Integers)](variants/sliding_window/variant_5b_min_size_subarray_sum_negative.md)** - Hard
-   - Same problem but handles negative integers
-   - **Hybrid**: Prefix Sum + Monotonic Deque (sliding window fails!)
-   - Shows when sliding window doesn't work
+2. **[Longest Substring Without Repeating Characters](variants/sliding_window/variant_1_longest_substring_no_repeat.md)** - LeetCode #3 ⭐
+   - **Concept:** Expand-while-valid, shrink when duplicate found
+   - **Complexity:** O(n) time, O(k) space (k = distinct chars)
+   - **Why Medium:** Variable window + hash set for tracking
 
-### Hybrid Patterns (Sliding Window + Auxiliary Data Structure):
-6. **[Minimum Window Substring](variants/sliding_window/variant_3_min_window_substring.md)** ⭐ - LeetCode #76, Hard
-   - Shortest substring containing all target characters
-   - **Hybrid**: Sliding Window + Hash Map (frequency tracking)
-   - Contract-while-valid strategy
-   
-7. **[Sliding Window Maximum](variants/sliding_window/variant_6_sliding_window_maximum.md)** ⭐ - LeetCode #239, Hard
-   - Maximum value in each fixed-size window
-   - **Hybrid**: Sliding Window + Monotonic Deque
-   - O(n×k) → O(n) via dominated element removal
-   
-8. **[Longest Substring with K Distinct Characters](variants/sliding_window/variant_7_k_distinct_characters.md)** ⭐ - LeetCode #340, Medium
-   - Longest substring with ≤ k distinct characters
-   - **Hybrid**: Sliding Window + Hash Map (frequency counting)
+3. **[Subarray Product Less Than K](variants/sliding_window/variant_2_subarray_product_less_k.md)** - LeetCode #713
+   - **Concept:** Shrink when product ≥ k, count with formula
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Medium:** Counting formula insight: `right - left + 1`
 
-⭐ = Hybrid pattern requiring auxiliary data structure
+4. **[Minimum Size Subarray Sum](variants/sliding_window/variant_5_min_size_subarray_sum.md)** - LeetCode #209
+   - **Concept:** Grow until sum ≥ target, then shrink to minimize
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Medium:** Shrink-while-valid minimization strategy
+
+5. **[Longest Substring with K Distinct Characters](variants/sliding_window/variant_7_k_distinct_characters.md)** - LeetCode #340
+   - **Concept:** Hash map frequency tracking with distinct count
+   - **Complexity:** O(n) time, O(k) space
+   - **Why Medium:** Hybrid - sliding window + hash map
+
+### 🔴 Hard (3 variants)
+**Master complex hybrid techniques and edge cases**
+
+6. **[Minimum Window Substring](variants/sliding_window/variant_3_min_window_substring.md)** - LeetCode #76 ⭐⭐
+   - **Concept:** Expand until valid, shrink while maintaining validity
+   - **Complexity:** O(n + m) time, O(m) space
+   - **Why Hard:** Contract-while-valid strategy, complex frequency matching
+
+7. **[Sliding Window Maximum](variants/sliding_window/variant_6_sliding_window_maximum.md)** - LeetCode #239 ⭐⭐
+   - **Concept:** Monotonic deque removes dominated elements
+   - **Complexity:** O(n) time, O(k) space
+   - **Why Hard:** Non-intuitive data structure choice (deque)
+
+8. **[Find All Anagrams in String](variants/sliding_window/variant_4_find_all_anagrams.md)** - LeetCode #438
+   - **Concept:** Fixed-size window with frequency matching
+   - **Complexity:** O(n) time, O(1) space (26 letters)
+   - **Why Hard:** Efficient frequency comparison technique
+
+### Practice Progression
+1. Start with **Maximum Sum** (#1) - learn fixed windows
+2. Master **Longest Substring** (#2) - variable window basics
+3. Practice **Subarray Product** (#3) and **Min Size** (#4) - shrinking strategies
+4. Learn hybrid with **K Distinct** (#5)
+5. Tackle **Minimum Window** (#6) - hardest, most common in interviews
+6. Complete **Sliding Window Maximum** (#7) - advanced data structure
 
 ---
 
