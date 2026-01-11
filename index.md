@@ -12,6 +12,10 @@
 ### 📑 Multi-Dimensional Indexes
 Explore problems organized by different perspectives:
 - **[By State Space](indexes/by_state_space.md)** - Group problems by their underlying state space structure (O(n²), O(2ⁿ), etc.) and optimization strategies
+- **[By Complexity](indexes/by_complexity.md)** - Choose patterns based on time/space constraints and input size limits
+- **[By Data Structure](indexes/by_data_structure.md)** - Find patterns based on the input type (array, string, linked list, tree, graph, etc.)
+- **[By Problem Type](indexes/by_problem_type.md)** - Identify patterns based on the goal (optimization, search, counting, generation, etc.)
+- **[By Difficulty](indexes/by_difficulty.md)** - Learning progression from Easy to Hard with structured paths
 
 ### ✅ [Checklist](checklist.md)
 Quick reference checklist for problem-solving.
