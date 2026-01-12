@@ -63,7 +63,7 @@ This index organizes patterns and problems by their **time complexity**, helping
 2. **[Group Anagrams](../variants/hash_map/variant_2_group_anagrams.md)** - O(n × k) where k = string length
 3. **[Subarray Sum Equals K](../variants/hash_map/variant_3_subarray_sum_equals_k.md)** - O(n)
 4. **[Longest Consecutive Sequence](../variants/hash_map/variant_4_longest_consecutive_sequence.md)** - O(n)
-5. **[Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)** - O(n)
+5. **[Duplicate Within K Distance](../variants/hash_map/variant_5_duplicate_within_k_distance.md)** - O(n)
 
 **Key Insight:** O(1) lookup eliminates nested loops
 
@@ -100,6 +100,18 @@ This index organizes patterns and problems by their **time complexity**, helping
 3. **[Move Zeros](../variants/two_pointers/variant_7_move_zeros.md)** - O(n)
 
 **Key Insight:** Linear scan with coordinated pointers
+
+### Binary Tree Pattern (8 variants)
+1. **[Maximum Depth of Binary Tree](../variants/binary_tree/variant_1_max_depth.md)** - O(n)
+2. **[Invert Binary Tree](../variants/binary_tree/variant_2_invert_tree.md)** - O(n)
+3. **[Diameter of Binary Tree](../variants/binary_tree/variant_3_diameter.md)** - O(n)
+4. **[Path Sum](../variants/binary_tree/variant_4_path_sum.md)** - O(n)
+5. **[Validate Binary Search Tree](../variants/binary_tree/variant_5_validate_bst.md)** - O(n)
+6. **[Binary Tree Level Order Traversal](../variants/binary_tree/variant_6_level_order.md)** - O(n)
+7. **[Lowest Common Ancestor](../variants/binary_tree/variant_7_lowest_common_ancestor.md)** - O(n)
+8. **[Serialize and Deserialize Binary Tree](../variants/binary_tree/variant_8_serialize_deserialize.md)** - O(n)
+
+**Key Insight:** Visit each node exactly once (DFS or BFS)
 
 ### Dynamic Programming 1D (linear variants)
 1. **[Climbing Stairs](../variants/dp_1d/variant_1_climbing_stairs.md)** - O(n)

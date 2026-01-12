@@ -120,7 +120,7 @@ Problems where **single elements are valid subarrays** and sequences must be con
 |---------|-------------|-------------|-------------------|-----------|
 | [Group Anagrams](../variants/hash_map/variant_2_group_anagrams.md) | n strings, n groups | O(n² × k) compare all | Hash Map (sorted key) | → O(n × k log k) |
 | [Longest Consecutive Seq](../variants/hash_map/variant_4_longest_consecutive_sequence.md) | n numbers | O(n log n) sort | Hash Set + smart iteration | → O(n) |
-| [Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md) | n(n-1)/2 pairs | O(n × k) | Hash Map (sliding window) | → O(n) |
+| [Duplicate Within K Distance](../variants/hash_map/variant_5_duplicate_within_k_distance.md) | n(n-1)/2 pairs | O(n × k) | Hash Map (sliding window) | → O(n) |
 
 **Key Insight:** Hash Map enables O(1) grouping by key. Avoids comparing all pairs or sorting.
 

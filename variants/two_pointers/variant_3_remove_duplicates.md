@@ -223,17 +223,43 @@ int RemoveDuplicates(int[] nums)
 
 | Step | fast | slow | nums[fast] | nums[fast-1] | Different? | Action | nums array |
 |------|------|------|------------|--------------|------------|--------|------------|
-| Init | 1    | 1    | -          | -            | -          | -      | [1,1,2,2,3] |
+| Init | -    | 1    | -          | -            | -          | -      | [1,1,2,2,3] |
 | 1    | 1    | 1    | 1          | 1            | ❌         | Skip   | [1,1,2,2,3] |
-| 2    | 2    | 1    | 2          | 1            | ✅         | Write  | [1,2,2,2,3] |
-|      |      | 2    |            |              |            | slow++ | [1,2,2,2,3] |
+| 2    | 2    | 1    | 2          | 1            | ✅         | Write nums[1]=2, slow++ | [1,2,2,2,3] |
 | 3    | 3    | 2    | 2          | 2            | ❌         | Skip   | [1,2,2,2,3] |
-| 4    | 4    | 2    | 3          | 2            | ✅         | Write  | [1,2,3,2,3] |
-|      |      | 3    |            |              |            | slow++ | [1,2,3,2,3] |
+| 4    | 4    | 2    | 3          | 2            | ✅         | Write nums[2]=3, slow++ | [1,2,3,2,3] |
+| End  | -    | 3    | -          | -            | -          | Return 3 | [1,2,3,2,3] |
 
 **Result: 3** (first 3 elements are [1,2,3])
 
-### **Detailed Step 2:**
+### **Additional Test Cases:**
+
+**Test: [1,2,3,3,4] (duplicates later)**
+
+| Step | fast | slow | nums[fast] | nums[fast-1] | Different? | Action | nums array |
+|------|------|------|------------|--------------|------------|--------|------------|
+| Init | -    | 1    | -          | -            | -          | -      | [1,2,3,3,4] |
+| 1    | 1    | 1    | 2          | 1            | ✅         | Write nums[1]=2, slow++ | [1,2,3,3,4] |
+| 2    | 2    | 2    | 3          | 2            | ✅         | Write nums[2]=3, slow++ | [1,2,3,3,4] |
+| 3    | 3    | 3    | 3          | 3            | ❌         | Skip   | [1,2,3,3,4] |
+| 4    | 4    | 3    | 4          | 3            | ✅         | Write nums[3]=4, slow++ | [1,2,3,4,4] |
+| End  | -    | 4    | -          | -            | -          | Return 4 | [1,2,3,4,4] |
+
+**Result: 4** (first 4 elements are [1,2,3,4])
+
+**Test: [1,2,3,4] (no duplicates)**
+
+| Step | fast | slow | nums[fast] | nums[fast-1] | Different? | Action | nums array |
+|------|------|------|------------|--------------|------------|--------|------------|
+| Init | -    | 1    | -          | -            | -          | -      | [1,2,3,4] |
+| 1    | 1    | 1    | 2          | 1            | ✅         | Write nums[1]=2, slow++ | [1,2,3,4] |
+| 2    | 2    | 2    | 3          | 2            | ✅         | Write nums[2]=3, slow++ | [1,2,3,4] |
+| 3    | 3    | 3    | 4          | 3            | ✅         | Write nums[3]=4, slow++ | [1,2,3,4] |
+| End  | -    | 4    | -          | -            | -          | Return 4 | [1,2,3,4] |
+
+**Result: 4** (all elements unique, array unchanged)
+
+### **Detailed Step 2 (original example):**
 ```
 fast=2, slow=1
 nums[2]=2, nums[1]=1

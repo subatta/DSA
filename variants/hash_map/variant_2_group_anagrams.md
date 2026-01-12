@@ -124,16 +124,17 @@ public IList<IList<string>> GroupAnagrams_BruteForce(string[] strs)
     
     for (int i = 0; i < strs.Length; i++)
     {
-        if (used[i]) continue;
+        if (used[i]) continue;  // Skip if already grouped
         
-        var group = new List<string>();
-        group.Add(strs[i]);
+        var group = new List<string> { strs[i] };
         used[i] = true;
         
         // Find all anagrams of strs[i]
         for (int j = i + 1; j < strs.Length; j++)
         {
-            if (!used[j] && AreAnagrams(strs[i], strs[j]))
+            if (used[j]) continue;  // Skip if already grouped
+            
+            if (AreAnagrams(strs[i], strs[j]))
             {
                 group.Add(strs[j]);
                 used[j] = true;
@@ -154,7 +155,12 @@ private bool AreAnagrams(string s1, string s2)
     foreach (char c in s1) freq[c - 'a']++;
     foreach (char c in s2) freq[c - 'a']--;
     
-    return freq.All(count => count == 0);
+    // Check if all frequencies are zero
+    foreach (int count in freq)
+    {
+        if (count != 0) return false;
+    }
+    return true;
 }
 ```
 

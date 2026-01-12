@@ -9,7 +9,7 @@
 
 - Real-world problem variants (simplest first):  
   1. [Two Sum](variants/hash_map/variant_1_two_sum.md) - LeetCode #1, Easy
-  2. [Contains Duplicate II](variants/hash_map/variant_5_contains_duplicate_ii.md) - LeetCode #219, Easy
+  2. [Duplicate Within K Distance](variants/hash_map/variant_5_duplicate_within_k_distance.md) - LeetCode #219, Easy
   3. [Group Anagrams](variants/hash_map/variant_2_group_anagrams.md) - LeetCode #49, Medium
   4. [Longest Consecutive Sequence](variants/hash_map/variant_4_longest_consecutive_sequence.md) - LeetCode #128, Medium
   5. [Subarray Sum Equals K](variants/hash_map/variant_3_subarray_sum_equals_k.md) - LeetCode #560, Medium
@@ -43,7 +43,7 @@ Dictionary<T, int> FrequencyCountTemplate(IEnumerable<T> input) {
    - **Complexity:** O(n) time, O(n) space
    - **Why Easy:** Single-pass, simple lookup, most famous interview problem
 
-2. **[Contains Duplicate II](variants/hash_map/variant_5_contains_duplicate_ii.md)** - LeetCode #219
+2. **[Duplicate Within K Distance](variants/hash_map/variant_5_duplicate_within_k_distance.md)** - LeetCode #219
    - **Concept:** Track most recent index of each value
    - **Complexity:** O(n) time, O(n) space
    - **Why Easy:** Simple index tracking, distance check
@@ -56,19 +56,19 @@ Dictionary<T, int> FrequencyCountTemplate(IEnumerable<T> input) {
    - **Complexity:** O(n × k log k) time, O(n × k) space (k = string length)
    - **Why Medium:** Choosing right key representation
 
-4. **[Subarray Sum Equals K](variants/hash_map/variant_3_subarray_sum_k.md)** - LeetCode #560 ⭐⭐
+4. **[Subarray Sum Equals K](variants/hash_map/variant_3_subarray_sum_equals_k.md)** - LeetCode #560 ⭐⭐
    - **Concept:** Prefix sum + hash map for O(n) counting
    - **Complexity:** O(n) time, O(n) space
    - **Why Medium:** Non-obvious prefix sum insight, frequency counting
 
-5. **[Longest Consecutive Sequence](variants/hash_map/variant_4_longest_consecutive.md)** - LeetCode #128
+5. **[Longest Consecutive Sequence](variants/hash_map/variant_4_longest_consecutive_sequence.md)** - LeetCode #128
    - **Concept:** Hash set for O(1) existence, only start from sequence beginnings
    - **Complexity:** O(n) time, O(n) space
    - **Why Medium:** Optimization to avoid redundant checks
 
 ### Practice Progression
 1. Start with **Two Sum** (#1) - most fundamental hash map problem
-2. Practice **Contains Duplicate II** (#2) - index tracking
+2. Practice **Duplicate Within K Distance** (#2) - index tracking
 3. Learn **Group Anagrams** (#3) - key design pattern
 4. Master **Subarray Sum** (#4) - prefix sum technique (hardest)
 5. Complete **Longest Consecutive** (#5) - sequence building

@@ -22,7 +22,7 @@ Unsorted array visualized:
 
 After sorting (mental model):
 [1, 2, 3, 4, 100, 200]
- └───────┘  └─┘ └──┘
+ └────────┘  └─┘  └─┘
  consecutive  single single
  length=4
 

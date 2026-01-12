@@ -14,7 +14,8 @@ A systematic approach to identify which algorithm pattern applies to any given p
 | **Array/String with "pairs" or "two elements"** | Two Pointers, Hash Map |
 | **Sorted array** | Binary Search, Two Pointers |
 | **Array of intervals/ranges** | Intervals Merging |
-| **Tree or Graph mentioned** | Graph Traversal (BFS/DFS) |
+| **Tree or Graph mentioned** | Graph Traversal (BFS/DFS), Binary Tree |
+| **Binary tree structure** | Binary Tree (DFS/BFS) |
 | **"Generate all", "find all combinations"** | Backtracking |
 | **Stack of elements where order matters** | Monotonic Stack |
 | **"Top K", "Kth largest/smallest"** | Heap/Priority Queue |
@@ -222,6 +223,28 @@ Example: "Count ways to climb stairs (1 or 2 steps)"
          → ways[i] = ways[i-1] + ways[i-2]
 ```
 
+### **🌳 Binary Tree Signals:**
+```
+✓ "binary tree" structure (TreeNode with left/right)
+✓ "depth" or "height" of tree
+✓ "invert/flip/mirror" tree
+✓ "diameter" (longest path between nodes)
+✓ "path sum" from root to leaf
+✓ "validate BST" (binary search tree)
+✓ "level order" traversal
+✓ "lowest common ancestor"
+✓ "serialize/deserialize" tree
+✓ "balanced tree" check
+✓ "symmetric tree" check
+✓ "same tree" comparison
+
+Example: "Find maximum depth of binary tree"
+         → Recursive DFS: 1 + max(left_depth, right_depth)
+         
+Example: "Validate if tree is a valid BST"
+         → DFS with range tracking (min, max)
+```
+
 ---
 
 ## **Step 3: Decision Tree for Pattern Selection**
@@ -283,6 +306,15 @@ START: Read Problem Statement
 │  │                    │                                        ├─ Connected Components
 │  │                    │                                        ├─ Cycle Detection
 │  │                    │                                        └─ Topological Sort
+│  │                    ├─ "Binary tree properties?" ──────────► ✅ BINARY TREE (DFS)
+│  │                    │                                        ├─ Max Depth
+│  │                    │                                        ├─ Invert Tree
+│  │                    │                                        ├─ Diameter
+│  │                    │                                        ├─ Path Sum
+│  │                    │                                        ├─ Validate BST
+│  │                    │                                        ├─ Level Order (BFS)
+│  │                    │                                        ├─ Lowest Common Ancestor
+│  │                    │                                        └─ Serialize/Deserialize
 │  │                    └─ "Topological/general?" ────────────► ✅ GRAPH TRAVERSAL
 │  │
 │  ├─ INTERVALS/RANGES ──► "Merge/schedule?" ────────────────► ✅ INTERVALS MERGING

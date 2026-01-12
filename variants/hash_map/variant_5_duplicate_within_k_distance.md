@@ -1,4 +1,4 @@
-# Variant #5: Contains Duplicate II
+# Variant #5: Duplicate Within K Distance
 
 **LeetCode #219 - Easy**
 

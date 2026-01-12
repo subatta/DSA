@@ -1,153 +1,203 @@
-# Pattern: Monotonic Stack
+# Pattern Title: Monotonic Stack
 
-## Pattern Description
-The Monotonic Stack pattern is used to efficiently process problems involving **next greater/smaller elements**, **range influence**, or **span calculations**, where naive nested loops would be too slow.
+## Pattern Description:
+- What is it?  
+  A stack that maintains elements in **monotonically increasing or decreasing order**. When a new element violates the monotonic property, we pop elements until the property is restored, processing those popped elements before pushing the new one.
 
-### What is it?
-- A stack that maintains elements in **monotonically increasing or decreasing order**
-- Allows discarding irrelevant candidates early through strategic popping
-- Each element pushed once and popped at most once → amortized O(n)
+- What abstract problem does it solve?  
+  Converts O(n²) nested loop comparisons for finding next/previous greater/smaller elements into O(n) single pass by discarding irrelevant candidates early.
 
-### What abstract problem does it solve?
-- For each element, find the **next greater / smaller** element to its right or left
-- Determine how far an element's influence extends in a range
-- Find boundaries where certain properties hold
-- Convert O(n²) nested loop comparisons into O(n) single pass
+- Real-world problem variants (simplest first):  
+  1. [Next Greater Element I](variants/monotonic_stack/variant_1_next_greater_element.md)
+  2. [Daily Temperatures](variants/monotonic_stack/variant_2_daily_temperatures.md)
+  3. [Largest Rectangle in Histogram](variants/monotonic_stack/variant_3_largest_rectangle_histogram.md)
+  4. [Next Greater Element II](variants/monotonic_stack/variant_4_next_greater_element_ii.md)
+  5. [Remove K Digits](variants/monotonic_stack/variant_5_remove_k_digits.md)
 
-### Real-world / interview variants (simplest → harder)
-1. Next Greater Element (basic template)
-2. Next Smaller Element (reverse monotonic property)
-3. Daily Temperatures (distance variant)
-4. Stock Span Problem (consecutive days)
-5. Largest Rectangle in Histogram (left & right boundaries)
-6. Trapping Rain Water (water level calculation)
-7. Sum of Subarray Minimums (contribution counting)
-8. Remove K Digits (lexicographically smallest)
-
-### Summary of key dimensions
-| Problem                  | Direction            | Stack Stores                               | Comparison            | Result                        | Subtlety                                     |
-| ------------------------ | -------------------- | ------------------------------------------ | --------------------- | ----------------------------- | -------------------------------------------- |
-| Next Greater Element     | Forward              | **decreasing indices waiting**             | current > top         | answer[top] = current         | basic template                               |
-| Next Smaller Element     | Forward              | **increasing indices waiting**             | current < top         | answer[top] = current         | reverse monotonic                            |
-| Daily Temperatures       | Forward              | **decreasing indices waiting**             | current > top         | answer[top] = i - top         | distance variant                             |
-| Stock Span               | Forward (looks back) | **decreasing indices of previous greater** | prices[top] ≤ current | span[i] = i - top             | past-looking, absorb smaller                 |
-| Largest Rectangle        | Forward              | **increasing bar heights indices**         | current < top         | area using boundaries         | left/right boundaries                        |
-| Trapping Rain Water      | Forward              | **bar indices forming pits**               | current > top         | water trapped calc            | store boundaries, not value                  |
-| Sum of Subarray Minimums | Two-pass             | **previous/next less indices**             | current < top         | contribution = val*left*right | counting subarrays                           |
-| Remove K Digits          | Forward              | **digits forming increasing number**       | current < top         | push current                  | enforce increasing order for smallest number |
-
----
-
-## Canonical Monotonic Stack Skeleton
+## Canonical Code Skeleton:
 
 ```csharp
-Stack<int> stack = new(); // stores indices or values
-
-for (int i = 0; i < n; i++)
-{
-    while (stack.Count > 0 && violatesMonotonicRule(stack.Peek(), i))
-    {
-        var idx = stack.Pop();
-        process(idx, i);
-    }
-    stack.Push(i);
-}
-```
-
-Key idea:  
-👉 Each element is **pushed once** and **popped once** → O(n)
-
----
-
-<details>
-<summary><b>Variant #1: Next Greater Element</b></summary>
-
-## Variant #1: Next Greater Element
-
-### Input/Output:
-- Input: `nums = [2,1,2,4,3]`
-- Output: `[4,2,4,-1,-1]`
-
-### Full State Space:
-For each element, compare with every element to its right.
-```
-For nums[0]=2: check 1,2,4,3 → 4 greater pairs
-For nums[1]=1: check 2,4,3 → 3 greater pairs
-For nums[2]=2: check 4,3 → 2 greater pairs
-For nums[3]=4: check 3 → 1 greater pair
-For nums[4]=3: check nothing → 0 pairs
-Total: 4+3+2+1+0 = 10 comparisons = O(n²)
-```
-```csharp
-void GenerateAllComparisons(int[] nums)
-{
-    for (int i = 0; i < nums.Length; i++)
-    {
-        Console.WriteLine($"For nums[{i}]={nums[i]}:");
-        for (int j = i + 1; j < nums.Length; j++)
-        {
-            Console.WriteLine($"  Compare with nums[{j}]={nums[j]}: {(nums[j] > nums[i] ? "FOUND" : "skip")}");
-            if (nums[j] > nums[i]) break;
-        }
-    }
-}
-```
-
-### Expected/Pruned State Space:
-Monotonic stack reduces comparisons by maintaining candidates.
-```
-Only relevant candidates stay in stack
-Each element processed exactly once → O(n)
-```
-
-### State Space Leading to Output:
-Stack stores indices of elements waiting for their next greater element.
-
-### Brute Force Canonical Skeleton:
-```csharp
-int[] NextGreaterElementBruteForce(int[] nums)
-{
+int[] MonotonicStackTemplate(int[] nums) {
     int n = nums.Length;
     int[] result = new int[n];
+    Stack<int> stack = new(); // stores indices
     
-    for (int i = 0; i < n; i++)
-    {
-        result[i] = -1; // Default: no greater element
-        
-        // Search to the right
-        for (int j = i + 1; j < n; j++)
-        {
-            if (nums[j] > nums[i])
-            {
-                result[i] = nums[j];
-                break; // Found, stop searching
-            }
+    for (int i = 0; i < n; i++) {
+        // Pop elements that violate monotonic property
+        while (stack.Count > 0 && nums[i] > nums[stack.Peek()]) {
+            int idx = stack.Pop();
+            result[idx] = nums[i]; // Process popped element
         }
+        stack.Push(i);
+    }
+    
+    // Handle remaining elements (no next greater)
+    while (stack.Count > 0) {
+        result[stack.Pop()] = -1;
     }
     
     return result;
 }
 ```
 
-### Brute Force Code Walkthrough / Variable Trace:
-For `nums = [2,1,2,4,3]`:
+## Pattern Variants (5 Total)
 
-| i | nums[i] | j | nums[j] | nums[j] > nums[i] | result[i] |
-|---|---------|---|---------|-------------------|----------|
-| 0 | 2 | 1 | 1 | no | -1 |
-| 0 | 2 | 2 | 2 | no | -1 |
-| 0 | 2 | 3 | 4 | yes | 4 |
-| 1 | 1 | 2 | 2 | yes | 2 |
-| 2 | 2 | 3 | 4 | yes | 4 |
-| 3 | 4 | 4 | 3 | no | -1 |
-| 4 | 3 | - | - | - | -1 |
+### 🟡 Medium (5 variants)
+**Master monotonic stack mechanics and applications**
 
-### Optimized Solution from Canonical Skeleton:
+1. **[Next Greater Element I](variants/monotonic_stack/variant_1_next_greater_element.md)** - LeetCode #496
+   - **Concept:** Basic monotonic decreasing stack, pop when current > top
+   - **Complexity:** O(n) time, O(n) space
+   - **Why Medium:** Foundation pattern, requires understanding of stack maintenance
+
+2. **[Daily Temperatures](variants/monotonic_stack/variant_2_daily_temperatures.md)** - LeetCode #739 ⭐
+   - **Concept:** Find distance to next warmer day (next greater element variant)
+   - **Complexity:** O(n) time, O(n) space
+   - **Why Medium:** Common interview problem, distance calculation instead of value
+
+3. **[Next Greater Element II](variants/monotonic_stack/variant_4_next_greater_element_ii.md)** - LeetCode #503
+   - **Concept:** Circular array - traverse twice to handle wraparound
+   - **Complexity:** O(n) time, O(n) space
+   - **Why Medium:** Circular array handling, modulo arithmetic
+
+4. **[Remove K Digits](variants/monotonic_stack/variant_5_remove_k_digits.md)** - LeetCode #402
+   - **Concept:** Monotonic increasing stack to build smallest number
+   - **Complexity:** O(n) time, O(n) space
+   - **Why Medium:** Edge cases (leading zeros, k >= n), string manipulation
+
+### 🔴 Hard (1 variant)
+**Master complex boundary tracking**
+
+5. **[Largest Rectangle in Histogram](variants/monotonic_stack/variant_3_largest_rectangle_histogram.md)** - LeetCode #84 ⭐⭐
+   - **Concept:** Find left/right boundaries for each bar using monotonic increasing stack
+   - **Complexity:** O(n) time, O(n) space
+   - **Why Hard:** Two boundaries, area calculation, sentinel values, non-obvious optimization
+
+### Practice Progression
+1. Start with **Next Greater Element I** (#1) - understand basic template
+2. Practice **Daily Temperatures** (#2) - most common interview problem
+3. Try **Next Greater Element II** (#3) - handle circular arrays
+4. Challenge yourself with **Remove K Digits** (#4) - different application
+5. Master **Largest Rectangle** (#5) - hardest optimization, requires deep insight
+
+---
+
+## Key Pattern Takeaways
+
+### Core Concepts
+- **Monotonic property**: Stack maintains increasing or decreasing order
+- **Each element processed once**: Push once, pop at most once → O(n) amortized
+- **Store indices, not values**: Enables distance/position calculations
+- **Pop = Process**: When violating monotonic property, popped elements found their answer
+
+### Monotonic Stack Types
+
+| Type | Property | Use Case | Example |
+|------|----------|----------|---------|
+| **Decreasing** | `nums[i] > nums[stack.top]` triggers pop | Find next **greater** element | Daily Temperatures |
+| **Increasing** | `nums[i] < nums[stack.top]` triggers pop | Find next **smaller** element | Largest Rectangle |
+
+### When to Use This Pattern
+
+✅ **Use when you see:**
+- "Next greater/smaller element"
+- "Distance to next element satisfying condition"
+- "Range where element is minimum/maximum"
+- "Span" or "width" calculations
+- O(n²) brute force scanning left/right
+
+❌ **Don't use when:**
+- Need to track all elements (not just relevant candidates)
+- Problem requires sorted order (use sorting instead)
+- Need to access elements in middle of range
+
+### Common Patterns
+
+**1. Next Greater Element (Decreasing Stack)**
 ```csharp
-int[] NextGreaterElement(int[] nums)
-{
-    int n = nums.Length;
-    int[] result = new int[n];
+Stack<int> stack = new();
+for (int i = 0; i < n; i++) {
+    while (stack.Count > 0 && nums[i] > nums[stack.Peek()]) {
+        int idx = stack.Pop();
+        result[idx] = nums[i]; // Found next greater
+    }
+    stack.Push(i);
+}
+```
+
+**2. Next Smaller Element (Increasing Stack)**
+```csharp
+Stack<int> stack = new();
+for (int i = 0; i < n; i++) {
+    while (stack.Count > 0 && nums[i] < nums[stack.Peek()]) {
+        int idx = stack.Pop();
+        result[idx] = nums[i]; // Found next smaller
+    }
+    stack.Push(i);
+}
+```
+
+**3. Distance Calculation**
+```csharp
+// Instead of storing value, store distance
+result[idx] = i - idx; // Distance from idx to i
+```
+
+**4. Circular Array (2x Traversal)**
+```csharp
+for (int i = 0; i < 2 * n; i++) {
+    int actualIdx = i % n;
+    // Same monotonic stack logic
+}
+```
+
+**5. Left and Right Boundaries**
+```csharp
+// First pass: find left boundary
+for (int i = 0; i < n; i++) {
+    while (stack.Count > 0 && nums[i] < nums[stack.Peek()]) {
+        stack.Pop();
+    }
+    left[i] = stack.Count > 0 ? stack.Peek() : -1;
+    stack.Push(i);
+}
+
+// Second pass: find right boundary (traverse right to left)
+```
+
+### Common Pitfalls
+
+❌ **Storing values instead of indices** - Loses position information  
+✅ Use indices to calculate distances or access original values
+
+❌ **Wrong monotonic order** - Decreasing for next greater, increasing for next smaller  
+✅ Think: "I pop when current is better than top"
+
+❌ **Forgetting remaining stack elements** - After loop, stack has elements with no answer  
+✅ Process remaining stack (usually set to -1 or default)
+
+❌ **Not handling edge cases** - Empty arrays, all same values, circular arrays  
+✅ Check constraints, handle n=1, test with monotonic input
+
+---
+
+## Summary of Key Dimensions
+
+| Problem | Direction | Stack Order | Pop Condition | Result | Key Insight |
+|---------|-----------|-------------|---------------|--------|-------------|
+| Next Greater | Forward | Decreasing | current > top | value/distance | Basic template |
+| Daily Temperatures | Forward | Decreasing | current > top | distance | Distance variant |
+| Next Greater II | Forward (2×) | Decreasing | current > top | value | Circular array |
+| Largest Rectangle | Forward | Increasing | current < top | area | Left/right boundaries |
+| Remove K Digits | Forward | Increasing | current < top | smallest number | Lexicographical order |
+
+---
+
+**Note:** The embedded variant content has been moved to individual files for better organization. Each file contains:
+1. State Space Derivation (cardinality, structure, generation)
+2. Brute Force with Value Tracing
+3. Pruning Analysis (can we do better?)
+4. Optimal Solution with Skeleton Transformation
     Array.Fill(result, -1); // Default: no greater element
     
     Stack<int> stack = new(); // Monotonic decreasing (stores indices)

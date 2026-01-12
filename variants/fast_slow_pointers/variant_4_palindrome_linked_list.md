@@ -185,18 +185,17 @@ public bool IsPalindrome_Optimal(ListNode head)
     ListNode firstHalf = head;
     
     // Step 3: Compare both halves
-    ListNode p1 = firstHalf, p2 = secondHalf;
     bool result = true;
     
-    while (p2 != null) // Second half is shorter or equal
+    while (secondHalf != null) // Second half is shorter or equal
     {
-        if (p1.val != p2.val)
+        if (firstHalf.val != secondHalf.val)
         {
             result = false;
             break;
         }
-        p1 = p1.next;
-        p2 = p2.next;
+        firstHalf = firstHalf.next;
+        secondHalf = secondHalf.next;
     }
     
     // Optional: Restore list (reverse second half back)

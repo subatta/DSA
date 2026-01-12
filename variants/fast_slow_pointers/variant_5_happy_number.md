@@ -31,12 +31,12 @@ Happy number example: n = 19
 Unhappy number example: n = 2
 
 2 → 4 → 16 → 37 → 58 → 89 → 145 → 42 → 20 → 4 (cycle!)
-        ↑_________________________________________________|
+    ↑_______________________________________|
 
 Visualized as directed graph:
-  2 → 4 → 16 → 37
-         ↑          ↓
-        20 ← 42 ← 145 ← 89 ← 58
+        2 → 4 → 16 → 37
+            ↑                    ↓
+            20 ← 42 ← 145 ← 89 ← 58
 
 This is a CYCLE DETECTION problem in disguise!
 ```

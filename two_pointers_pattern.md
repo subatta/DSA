@@ -49,25 +49,25 @@ int TwoPointersTemplate(int[] nums) {
 ### 🟢 Easy (4 variants)
 **Master basic pointer movement patterns**
 
-1. **[Two Sum II (Sorted Array)](variants/two_pointers/variant_1_two_sum_sorted.md)** - LeetCode #167 ⭐
+1. **[Two Sum in Sorted Array](variants/two_pointers/variant_1_two_sum_sorted.md)** - LeetCode #167 ⭐
    - **Concept:** Opposite-direction pointers, move based on sum comparison
    - **Complexity:** O(n) time, O(1) space
    - **Why Easy:** Sorted array, clear decision rule for pointer movement
 
-2. **[Valid Palindrome](variants/two_pointers/variant_2_valid_palindrome.md)** - LeetCode #125
-   - **Concept:** Compare characters from both ends moving inward
-   - **Complexity:** O(n) time, O(1) space
-   - **Why Easy:** Simple comparison, straightforward pointer movement
-
-3. **[Remove Duplicates from Sorted Array](variants/two_pointers/variant_7_remove_duplicates.md)** - LeetCode #26
+2. **[Remove Duplicates from Sorted Array](variants/two_pointers/variant_3_remove_duplicates.md)** - LeetCode #26
    - **Concept:** Fast & slow pointers, slow tracks unique position
    - **Complexity:** O(n) time, O(1) space
    - **Why Easy:** Single-pass in-place modification
 
-4. **[Move Zeros](variants/two_pointers/variant_8_move_zeros.md)** - LeetCode #283
+3. **[Move Zeros, Preserve Order](variants/two_pointers/variant_7_move_zeros.md)** - LeetCode #283
    - **Concept:** Slow pointer tracks non-zero position, swap when found
    - **Complexity:** O(n) time, O(1) space
    - **Why Easy:** Partition variant, simple swap logic
+
+4. **[Valid Palindrome](variants/two_pointers/variant_2_valid_palindrome.md)** - LeetCode #125
+   - **Concept:** Compare characters from both ends moving inward
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Easy:** Simple comparison, straightforward pointer movement
 
 ### 🟡 Medium (3 variants)
 **Handle multiple pointers and complex logic**

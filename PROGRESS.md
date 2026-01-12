@@ -180,7 +180,7 @@
 2. Group Anagrams
 3. Subarray Sum Equals K
 4. Longest Consecutive Sequence
-5. Contains Duplicate II
+5. Duplicate Within K Distance
 
 **Pattern File:** `hash_map_frequency_counting_pattern.md` ✓
 **Variants Folder:** `variants/hash_map/` ✓

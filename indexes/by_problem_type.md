@@ -47,6 +47,12 @@ This index organizes patterns by the **goal or objective** of the problem, helpi
 
 **Use when:** Optimizing over contiguous sequences
 
+#### 4. **Binary Tree** (property optimization)
+- **[Maximum Depth of Binary Tree](../variants/binary_tree/variant_1_max_depth.md)** - Maximum height
+- **[Diameter of Binary Tree](../variants/binary_tree/variant_3_diameter.md)** - Longest path
+
+**Use when:** Tree properties need optimization
+
 ---
 
 ## **Search Problems**
@@ -69,7 +75,7 @@ This index organizes patterns by the **goal or objective** of the problem, helpi
 
 #### 2. **Hash Map** (lookup variants)
 - **[Two Sum](../variants/hash_map/variant_1_two_sum.md)** - Find pair with target sum
-- **[Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)** - Find duplicate within distance
+- **[Duplicate Within K Distance](../variants/hash_map/variant_5_duplicate_within_k_distance.md)** - Find duplicate within distance
 - **[Longest Consecutive Sequence](../variants/hash_map/variant_4_longest_consecutive.md)** - Find longest sequence
 
 **Use when:** Need fast O(1) lookup
@@ -266,6 +272,10 @@ void Backtrack(state, startIndex) {
 - **[Word Break](../variants/dp_1d/variant_6_word_break.md)** - Can segment string?
 - **[Jump Game](../variants/greedy/variant_2_jump_game.md)** - Can reach end?
 
+#### 5. **Binary Tree** (validation)
+- **[Validate Binary Search Tree](../variants/binary_tree/variant_5_validate_bst.md)** - Is valid BST?
+- **[Path Sum](../variants/binary_tree/variant_4_path_sum.md)** - Does root-to-leaf path exist?
+
 **Signal Words:** "can you", "is it possible", "valid", "feasible"
 
 ---
@@ -310,6 +320,12 @@ void Backtrack(state, startIndex) {
 
 **Signal Words:** "connected", "reachable", "path", "components", "islands"
 
+### Binary Tree Pattern (traversal/properties):
+- **[Binary Tree Level Order Traversal](../variants/binary_tree/variant_6_level_order.md)** - BFS traversal
+- **[Lowest Common Ancestor](../variants/binary_tree/variant_7_lowest_common_ancestor.md)** - Find connection point
+
+**Use when:** Tree-specific connectivity/relationship queries
+
 ---
 
 ## **Transformation/Construction Problems**
@@ -329,6 +345,10 @@ void Backtrack(state, startIndex) {
 - **[Generate Parentheses](../variants/backtracking/variant_2_generate_parentheses.md)** - Construct valid strings
 - **[N-Queens](../variants/backtracking/variant_4_n_queens.md)** - Construct valid board
 
+#### 4. **Binary Tree**
+- **[Invert Binary Tree](../variants/binary_tree/variant_2_invert_tree.md)** - Transform tree structure
+- **[Serialize and Deserialize Binary Tree](../variants/binary_tree/variant_8_serialize_deserialize.md)** - Transform tree to/from string
+
 ---
 
 ## **Streaming/Online Problems**
@@ -342,7 +362,7 @@ void Backtrack(state, startIndex) {
 - **[Find Median from Stream](../variants/heap/variant_2_find_median_stream.md)** - Update median online
 
 #### 2. **Hash Map**
-- **[Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)** - Track recent elements
+- **[Duplicate Within K Distance](../variants/hash_map/variant_5_duplicate_within_k_distance.md)** - Track recent elements
 - **LRU Cache** - Maintain recent accesses
 
 **Signal Words:** "stream", "online", "as elements arrive", "maintain"

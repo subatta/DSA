@@ -36,7 +36,7 @@ This index organizes patterns by the **primary data structure** mentioned in the
 - [Two Sum](../variants/hash_map/variant_1_two_sum.md)
 - [Subarray Sum Equals K](../variants/hash_map/variant_3_subarray_sum_k.md)
 - [Longest Consecutive Sequence](../variants/hash_map/variant_4_longest_consecutive.md)
-- [Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)
+- [Duplicate Within K Distance](../variants/hash_map/variant_5_duplicate_within_k_distance.md)
 
 **Signal Words:** "frequency", "count", "find pair", "group by"
 
@@ -162,28 +162,57 @@ This index organizes patterns by the **primary data structure** mentioned in the
 
 ### When Problem Gives You: TreeNode, binary tree, N-ary tree
 
-**Primary Pattern: Graph Traversal (DFS/BFS)** (tree-specific)
+**Primary Pattern: Binary Tree (DFS/BFS)** (8 variants)
 
-#### DFS Traversals:
-- **Preorder:** Root → Left → Right
-- **Inorder:** Left → Root → Right (BST gives sorted)
-- **Postorder:** Left → Right → Root
+1. **[Maximum Depth of Binary Tree](../variants/binary_tree/variant_1_max_depth.md)** ⭐ - DFS (post-order)
+2. **[Invert Binary Tree](../variants/binary_tree/variant_2_invert_tree.md)** ⭐ - DFS (pre-order swap)
+3. **[Diameter of Binary Tree](../variants/binary_tree/variant_3_diameter.md)** - DFS with global state
+4. **[Path Sum](../variants/binary_tree/variant_4_path_sum.md)** - DFS with accumulator
+5. **[Validate Binary Search Tree](../variants/binary_tree/variant_5_validate_bst.md)** ⭐⭐ - DFS with range tracking
+6. **[Binary Tree Level Order Traversal](../variants/binary_tree/variant_6_level_order.md)** ⭐ - BFS with queue
+7. **[Lowest Common Ancestor](../variants/binary_tree/variant_7_lowest_common_ancestor.md)** ⭐⭐ - DFS (post-order)
+8. **[Serialize and Deserialize Binary Tree](../variants/binary_tree/variant_8_serialize_deserialize.md)** ⭐⭐ - DFS/BFS
 
-#### BFS Traversal:
-- **Level-order:** Process level by level with queue
+**Key Technique:**
+- **DFS (Recursive):** For tree properties (depth, diameter, validation)
+  - **Pre-order:** Process root before children (invert, serialize)
+  - **In-order:** Left → Root → Right (BST validation, sorted output)
+  - **Post-order:** Process children before root (depth, diameter, LCA)
+- **BFS (Iterative):** For level-by-level processing (level order traversal)
 
-**Common Tree Problems:**
-- Maximum depth → DFS
-- Level-order traversal → BFS
-- Path sum → DFS with backtracking
-- Lowest common ancestor → DFS
-- Serialize/Deserialize → BFS or DFS
+**DFS Template:**
+```csharp
+int DFS(TreeNode root) {
+    if (root == null) return baseCase;
+    
+    int left = DFS(root.left);
+    int right = DFS(root.right);
+    
+    return Combine(left, right, root.val);
+}
+```
+
+**BFS Template:**
+```csharp
+var queue = new Queue<TreeNode>();
+queue.Enqueue(root);
+
+while (queue.Count > 0) {
+    int levelSize = queue.Count;
+    for (int i = 0; i < levelSize; i++) {
+        var node = queue.Dequeue();
+        // Process node
+        if (node.left != null) queue.Enqueue(node.left);
+        if (node.right != null) queue.Enqueue(node.right);
+    }
+}
+```
 
 **Dynamic Programming** can also apply:
-- House Robber III (tree version)
-- Binary Tree Maximum Path Sum
+- House Robber III (LeetCode #337) - Tree version
+- Binary Tree Maximum Path Sum (LeetCode #124)
 
-**Signal Words:** "traverse", "level", "depth", "path", "ancestor"
+**Signal Words:** "binary tree", "traverse", "level", "depth", "path", "ancestor", "BST", "valid"
 
 ---
 
@@ -286,7 +315,7 @@ This index organizes patterns by the **primary data structure** mentioned in the
 2. **[Group Anagrams](../variants/hash_map/variant_2_group_anagrams.md)** ⭐ - Group by key
 3. **[Subarray Sum Equals K](../variants/hash_map/variant_3_subarray_sum_k.md)** - Prefix sum frequency
 4. **[Longest Consecutive Sequence](../variants/hash_map/variant_4_longest_consecutive.md)** - O(1) existence check
-5. **[Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)** - Recent index tracking
+5. **[Duplicate Within K Distance](../variants/hash_map/variant_5_duplicate_within_k_distance.md)** - Recent index tracking
 
 **Use hash map when:**
 - Need O(1) lookup

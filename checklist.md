@@ -18,6 +18,8 @@
 | **11. Greedy**                       | Optimization, local choice → global solution  | Sort input (or use heap), iterate               | Check greedy choice correctness, prove or justify locally optimal decisions |
 | **12. Graph Traversal**              | Nodes/edges, grid/tree                        | BFS (queue), DFS (stack/recursion)              | Decide BFS vs DFS based on shortest path vs full traversal, mark visited    |
 | **13. Dynamic Programming (1D)**     | Optimization over 1D state (max/min/count)    | State array → transition → base                 | Trace state table, relate current state to previous states                  |
+| **14. Dynamic Programming (2D)**     | Grid paths, LCS, edit distance                | 2D table, transition from neighbors/prev states | Build table row-by-row or column-by-column, often space optimizable to 1D   |
+| **15. Binary Tree**                  | Tree structure, root-to-leaf paths            | DFS (recursive), BFS (queue)                    | Recursive post-order for properties, BFS for level-order, validate with ranges |
 
 ---
 
@@ -250,6 +252,40 @@ void Backtrack(State current, int index) {
     }
 }
 ```
+
+### 15. Binary Tree (DFS - Recursive)
+Recursive tree traversal and property checking
+```csharp
+int DFS(TreeNode root) {
+    if (root == null) return baseCase;
+    
+    // Process: current node
+    int left = DFS(root.left);
+    int right = DFS(root.right);
+    
+    // Combine: left + right + current
+    return CombineResults(left, right, root.val);
+}
+```
+
+### 16. Binary Tree (BFS - Level Order)
+Level-by-level traversal using queue
+```csharp
+var queue = new Queue<TreeNode>();
+queue.Enqueue(root);
+
+while (queue.Count > 0) {
+    int levelSize = queue.Count;
+    for (int i = 0; i < levelSize; i++) {
+        var node = queue.Dequeue();
+        // Process: current node
+        
+        if (node.left != null) queue.Enqueue(node.left);
+        if (node.right != null) queue.Enqueue(node.right);
+    }
+}
+```
+
 ## Pattern Decision Flow (Mermaid Diagram)
 ```mermaid
 flowchart TD
@@ -294,3 +330,5 @@ flowchart TD
 | **11. Greedy**                       | Activity selection, jump game, coin change                             | `csharp Array.Sort(intervals,(a,b)=>a.end-b.end); int lastEnd=-1; foreach(var iv in intervals){ if(iv.start>lastEnd){count++; lastEnd=iv.end;} }`                                                                                        | Sort or select based on local optimal; confirm greedy works globally                                        |
 | **12. Graph Traversal**              | BFS grid, DFS tree, shortest path                                      | `csharp void BFS(Node start){ Queue<Node> q=new Queue<Node>(); q.Enqueue(start); visited[start]=true; while(q.Count>0){ var n=q.Dequeue(); foreach(var nbr in n.neighbors){ if(!visited[nbr]){ visited[nbr]=true; q.Enqueue(nbr); }}} }` | BFS for shortest paths, DFS for full exploration or backtracking                                            |
 | **13. Dynamic Programming (1D)**     | Climbing stairs, house robber, max subarray                            | `csharp int[] dp=new int[n]; dp[0]=base; for(int i=1;i<n;i++){ dp[i]=f(dp[i-1], dp[i-2],...); }`                                                                                                                                         | Identify state, transition, base case; optional space optimization with rolling variables                   |
+| **14. Dynamic Programming (2D)**     | Unique paths, LCS, edit distance                                       | `csharp int[,] dp=new int[m,n]; dp[0,0]=base; for(int i=0;i<m;i++) for(int j=0;j<n;j++){ dp[i,j]=f(dp[i-1,j], dp[i,j-1],...); }`                                                                                                       | Build table row-by-row; often optimizable to 1D rolling array                                               |
+| **15. Binary Tree**                  | Max depth, invert tree, validate BST, level order                      | `csharp int DFS(TreeNode root){ if(root==null) return base; int left=DFS(root.left); int right=DFS(root.right); return Combine(left,right,root.val); }`                                                                                   | Recursive DFS for properties; BFS with queue for level-order; track ranges for BST validation               |

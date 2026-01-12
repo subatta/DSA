@@ -116,7 +116,7 @@ Problems that check all pairs before optimization:
 - **Two Sum II** (sorted) → O(n²) brute force, O(n) with two pointers
 - **Container With Most Water** → O(n²) brute force, O(n) with two pointers
 - **3Sum** → O(n³) brute force (n choices × n² pairs), O(n²) optimized
-- **Contains Duplicate II** → O(n²) brute force, O(n) with hash map
+- **Duplicate Within K Distance** → O(n²) brute force, O(n) with hash map
 
 ### Pair Comparison
 - Finding closest pair

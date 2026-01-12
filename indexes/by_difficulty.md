@@ -1,6 +1,6 @@
 # Algorithm Patterns by Difficulty Level
 
-This index organizes all 83 variants by difficulty, helping you create an effective learning progression from beginner to advanced levels.
+This index organizes all 90 variants by difficulty, helping you create an effective learning progression from beginner to advanced levels.
 
 ---
 
@@ -60,7 +60,7 @@ This index organizes all 83 variants by difficulty, helping you create an effect
    - Pattern: Complement lookup
    - Complexity: O(n)
 
-2. **[Contains Duplicate II](../variants/hash_map/variant_5_contains_duplicate_ii.md)** - LeetCode #219
+2. **[Duplicate Within K Distance](../variants/hash_map/variant_5_duplicate_within_k_distance.md)** - LeetCode #219
    - Pattern: Sliding hash map
    - Complexity: O(n)
 
@@ -85,6 +85,23 @@ This index organizes all 83 variants by difficulty, helping you create an effect
 ### Dynamic Programming (Easy)
 1. **[Climbing Stairs](../variants/dp_1d/variant_1_climbing_stairs.md)** - LeetCode #70 ⭐
    - Pattern: Fibonacci recurrence
+   - Complexity: O(n)
+
+### Binary Tree (Easy)
+1. **[Maximum Depth of Binary Tree](../variants/binary_tree/variant_1_max_depth.md)** - LeetCode #104 ⭐
+   - Pattern: Recursive DFS
+   - Complexity: O(n)
+
+2. **[Invert Binary Tree](../variants/binary_tree/variant_2_invert_tree.md)** - LeetCode #226 ⭐
+   - Pattern: Recursive swap
+   - Complexity: O(n)
+
+3. **[Diameter of Binary Tree](../variants/binary_tree/variant_3_diameter.md)** - LeetCode #543
+   - Pattern: DFS with global state
+   - Complexity: O(n)
+
+4. **[Path Sum](../variants/binary_tree/variant_4_path_sum.md)** - LeetCode #112
+   - Pattern: DFS with accumulator
    - Complexity: O(n)
 
 ### Greedy (Easy)
@@ -266,6 +283,19 @@ This index organizes all 83 variants by difficulty, helping you create an effect
    - Pattern: DP or greedy (BFS levels)
    - Complexity: O(n)
 
+### Binary Tree (Medium)
+1. **[Validate Binary Search Tree](../variants/binary_tree/variant_5_validate_bst.md)** - LeetCode #98 ⭐⭐
+   - Pattern: DFS with range tracking
+   - Complexity: O(n)
+
+2. **[Binary Tree Level Order Traversal](../variants/binary_tree/variant_6_level_order.md)** - LeetCode #102 ⭐
+   - Pattern: BFS with queue
+   - Complexity: O(n)
+
+3. **[Lowest Common Ancestor](../variants/binary_tree/variant_7_lowest_common_ancestor.md)** - LeetCode #236 ⭐⭐
+   - Pattern: Recursive DFS
+   - Complexity: O(n)
+
 ### Backtracking (Medium)
 1. **[Subsets](../variants/backtracking/variant_1_subsets.md)** - LeetCode #78 ⭐
    - Pattern: Include/exclude decisions
@@ -392,6 +422,12 @@ This index organizes all 83 variants by difficulty, helping you create an effect
    - Complexity: O(m × n × 4^L)
    - **Why Hard:** 4-directional search, backtrack visited state
 
+### Binary Tree (Hard)
+1. **[Serialize and Deserialize Binary Tree](../variants/binary_tree/variant_8_serialize_deserialize.md)** - LeetCode #297 ⭐⭐
+   - Pattern: Preorder DFS or BFS with null markers
+   - Complexity: O(n)
+   - **Why Hard:** Complex state management, tree reconstruction logic
+
 ### Greedy (Hard)
 1. **[Task Scheduler](../variants/greedy/variant_5_task_scheduler.md)** - LeetCode #621
    - Pattern: Greedy with formula or heap
@@ -403,7 +439,7 @@ This index organizes all 83 variants by difficulty, helping you create an effect
 ## **Learning Progression Paths**
 
 ### Path 1: Hash Map Focus (Week 1)
-🟢 Two Sum → 🟢 Contains Duplicate II → 🟡 Group Anagrams → 🟡 Subarray Sum Equals K → 🟡 Longest Consecutive Sequence
+🟢 Two Sum → 🟢 Duplicate Within K Distance → 🟡 Group Anagrams → 🟡 Subarray Sum Equals K → 🟡 Longest Consecutive Sequence
 
 ### Path 2: Two Pointers (Week 1-2)
 🟢 Valid Palindrome → 🟢 Two Sum II → 🟢 Remove Duplicates → 🟡 Container With Most Water → 🟡 3Sum → 🔴 Trapping Rain Water
@@ -459,12 +495,13 @@ This index organizes all 83 variants by difficulty, helping you create an effect
 | Graph | 0 | 5 | 2 | 7 |
 | Dynamic Programming | 1 | 6 | 1 | 8 |
 | Backtracking | 0 | 5 | 2 | 7 |
-| **TOTAL** | **17** | **50** | **17** | **83** |
+| Binary Tree | 4 | 3 | 1 | 8 |
+| **TOTAL** | **21** | **53** | **18** | **90** |
 
 ### Overall Distribution:
-- **🟢 Easy:** 17 problems (20%)
-- **🟡 Medium:** 49 problems (59%)
-- **🔴 Hard:** 17 problems (20%)
+- **🟢 Easy:** 21 problems (23%)
+- **🟡 Medium:** 53 problems (59%)
+- **🔴 Hard:** 18 problems (20%)
 
 ---
 
@@ -472,18 +509,18 @@ This index organizes all 83 variants by difficulty, helping you create an effect
 
 ### Beginner (First 2 weeks):
 - Focus on **Easy + foundational Medium** problems
-- Master: Hash Map, Two Pointers, Sliding Window basics
-- Goal: 20-25 problems
+- Master: Hash Map, Two Pointers, Sliding Window basics, Binary Tree basics
+- Goal: 25-30 problems
 
 ### Intermediate (Weeks 3-6):
 - Focus on **Medium** problems across all patterns
-- Master: DP 1D, Graph, Backtracking, Heap
-- Goal: 40-50 problems total
+- Master: DP 1D, Graph, Backtracking, Heap, Binary Tree properties
+- Goal: 50-60 problems total
 
 ### Advanced (Weeks 7-8):
 - Focus on **Hard** problems and optimizations
-- Master: Advanced DP, complex backtracking, Dijkstra
-- Goal: All 83 variants
+- Master: Advanced DP, complex backtracking, Dijkstra, tree serialization
+- Goal: All 90 variants
 
 ### Pre-Interview Polish (Week before):
 - Review **starred (⭐) problems** - most common in interviews

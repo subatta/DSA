@@ -138,12 +138,74 @@ void MoveZeroesBruteForce(int[] nums)
 
 ## **Step 4: Optimal Solution**
 
+### **Optimal: One-Pass with Swap**
+
+Instead of copy-then-fill, **swap** elements to avoid the second loop:
+
 ```csharp
 void MoveZeroes(int[] nums) 
 {
     int slow = 0; // Write position for non-zeros
     
-    // Move all non-zeros to front
+    for (int fast = 0; fast < nums.Length; fast++)
+    {
+        if (nums[fast] != 0)
+        {
+            // Swap non-zero to front
+            int temp = nums[slow];
+            nums[slow] = nums[fast];
+            nums[fast] = temp;
+            slow++;
+        }
+    }
+}
+```
+
+**Why swapping works:**
+- When `slow == fast`: Swaps element with itself (no-op, no zeros encountered yet) ✓
+- When `slow < fast`: Swaps non-zero forward, zero backward ✓
+- **Single pass** - no need for separate fill loop!
+
+**Value Trace for [0,1,0,3,12]:**
+
+| Step | fast | slow | nums[fast] | Action | Array After |
+|------|------|------|------------|--------|-------------|
+| Init | 0    | 0    | -          | -      | [0,1,0,3,12] |
+| 1    | 0    | 0    | 0          | Skip (zero) | [0,1,0,3,12] |
+| 2    | 1    | 0    | 1          | Swap(0,1) | [1,0,0,3,12] |
+|      |      | 1    |            | slow++ | [1,0,0,3,12] |
+| 3    | 2    | 1    | 0          | Skip (zero) | [1,0,0,3,12] |
+| 4    | 3    | 1    | 3          | Swap(1,3) | [1,3,0,0,12] |
+|      |      | 2    |            | slow++ | [1,3,0,0,12] |
+| 5    | 4    | 2    | 12         | Swap(2,4) | [1,3,12,0,0] |
+|      |      | 3    |            | slow++ | [1,3,12,0,0] |
+
+**Result: [1,3,12,0,0]** ✓ Single pass!
+
+**Value Trace for [1,2,3] (no zeros):**
+
+| Step | fast | slow | nums[fast] | Action | Array After |
+|------|------|------|------------|--------|-------------|
+| Init | 0    | 0    | -          | -      | [1,2,3] |
+| 1    | 0    | 0    | 1          | Swap(0,0) = no-op | [1,2,3] |
+|      |      | 1    |            | slow++ | [1,2,3] |
+| 2    | 1    | 1    | 2          | Swap(1,1) = no-op | [1,2,3] |
+|      |      | 2    |            | slow++ | [1,2,3] |
+| 3    | 2    | 2    | 3          | Swap(2,2) = no-op | [1,2,3] |
+|      |      | 3    |            | slow++ | [1,2,3] |
+
+**Result: [1,2,3]** ✓ Unchanged (swaps with self)
+
+### **Alternative: Two-Pass (Copy + Fill)**
+
+A simpler but less optimal approach:
+
+```csharp
+void MoveZeroesTwoPass(int[] nums) 
+{
+    int slow = 0;
+    
+    // Pass 1: Copy non-zeros to front
     for (int fast = 0; fast < nums.Length; fast++)
     {
         if (nums[fast] != 0)
@@ -153,7 +215,7 @@ void MoveZeroes(int[] nums)
         }
     }
     
-    // Fill remaining with zeros
+    // Pass 2: Fill remaining with zeros
     for (int i = slow; i < nums.Length; i++)
     {
         nums[i] = 0;
@@ -161,10 +223,17 @@ void MoveZeroes(int[] nums)
 }
 ```
 
-**Big-O**: O(n) time, O(n) space → **O(1) space** ✅
+**Comparison:**
+
+| Approach | Passes | Advantages | Use When |
+|----------|--------|------------|----------|
+| **Swap** | 1 | Single pass, elegant | **Preferred** |
+| Copy + Fill | 2 | Simpler logic | Teaching basics |
+
+**Big-O**: O(n) time, O(1) space (both approaches)
 
 ### **Key Takeaway:**
-**Fast/slow for in-place partitioning**: Similar to Remove Duplicates, but instead of comparing adjacent elements, we filter by value (zero vs non-zero).
+**Fast/slow with swap for in-place partitioning**: Swapping naturally handles the case when pointers coincide (no-op swap) and eliminates the need for a separate fill loop. This is the optimal single-pass solution.
 
 ---
 

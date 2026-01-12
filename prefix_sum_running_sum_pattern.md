@@ -8,11 +8,10 @@
   It collapses repeated summation over overlapping ranges into a single pass, transforming O(n²) subarray enumeration problems into O(n) or O(n log n).
 
 - Real-world problem variants (simplest first):  
-  1. Range Sum Query (immutable)
-  2. Subarray Sum Equals K
-  3. Count of Subarrays with Given Sum
-  4. Contiguous Array (Binary Array with Sum)
-  5. 2D Prefix Sum (conceptual extension)
+  1. [Range Sum Query - Immutable](variants/prefix_sum/variant_1_range_sum_query.md)
+  2. [Product of Array Except Self](variants/prefix_sum/variant_2_product_except_self.md)
+  3. [Find Pivot Index](variants/prefix_sum/variant_3_find_pivot_index.md)
+  4. [Continuous Subarray Sum](variants/prefix_sum/variant_4_continuous_subarray_sum.md)
 
 ## Canonical Code Skeleton:
 
@@ -37,296 +36,118 @@ int SubarraySumTemplate(int[] nums, int k) {
 }
 ```
 
-<details>
-<summary><b>Variant #1: Range Sum Query (Immutable)</b></summary>
+## Pattern Variants (4 Total)
 
-## Variant #1: Range Sum Query (Immutable)
+### 🟢 Easy (2 variants)
+**Master basic prefix sum mechanics**
 
-### Input/Output:
-- Input: `nums = [1,2,3,4]`, queries like `sumRange(1, 3)`
-- Output: `9` (sum of elements from index 1 to 3: 2+3+4)
+1. **[Range Sum Query - Immutable](variants/prefix_sum/variant_1_range_sum_query.md)** - LeetCode #303
+   - **Concept:** Precompute cumulative sums for O(1) range queries
+   - **Complexity:** O(n) preprocessing, O(1) per query, O(n) space
+   - **Why Easy:** Direct application of prefix sum array
 
-### Full State Space:
-All possible range queries `(l, r)` where `0 ≤ l ≤ r < n`:
-```
-(0,0): sum=1,
-(0,1): sum=3,
-(0,2): sum=6,
-(0,3): sum=10,
-(1,1): sum=2,
-(1,2): sum=5,
-(1,3): sum=9,
-(2,2): sum=3,
-(2,3): sum=7,
-(3,3): sum=4
-```
-```csharp
-void GenerateAllRangeSums(int[] nums)
-{
-    var allRangeSums = new List<(int l, int r, int sum)>();
-    
-    for (int start = 0; start < nums.Length; start++)
-    {
-        for (int end = start; end < nums.Length; end++)
-        {
-            int sum = 0;
-            for (int i = start; i <= end; i++)
-            {
-                sum += nums[i];
-            }
-            allRangeSums.Add((start, end, sum));
-        }
-    }
-}
-```
+2. **[Find Pivot Index](variants/prefix_sum/variant_3_find_pivot_index.md)** - LeetCode #724
+   - **Concept:** Left sum equals right sum using prefix sum
+   - **Complexity:** O(n) time, O(1) space
+   - **Why Easy:** Single pass with running sum comparison
 
-### Expected/Pruned State Space:
-Use prefix array so each range is answered in O(1):
-```
-prefix = [0, 1, 3, 6, 10]
-sum(1,3) = prefix[4] - prefix[1] = 10 - 1 = 9
-```
-```csharp
-void BuildPrefixArray(int[] nums)
-{
-    int[] prefix = new int[nums.Length + 1];
-    
-    for (int i = 0; i < nums.Length; i++)
-    {
-        prefix[i + 1] = prefix[i] + nums[i];
-    }
-}
-```
+### 🟡 Medium (2 variants)
+**Apply prefix sum with hash maps and modulo arithmetic**
 
-### State Space Leading to Output:
-For query (1,3): `prefix[3+1] - prefix[1] = 10 - 1 = 9`
+3. **[Product of Array Except Self](variants/prefix_sum/variant_2_product_except_self.md)** - LeetCode #238 ⭐
+   - **Concept:** Prefix products from left and right (no division)
+   - **Complexity:** O(n) time, O(1) space (excluding output)
+   - **Why Medium:** Two-pass approach, space optimization trick
 
-### Brute Force Canonical Skeleton:
-```csharp
-int RangeSumBruteForce(int[] nums, int l, int r)
-{
-    int sum = 0;
-    for (int i = l; i <= r; i++)
-    {
-        sum += nums[i];
-    }
-    return sum;
-}
-```
+4. **[Continuous Subarray Sum](variants/prefix_sum/variant_4_continuous_subarray_sum.md)** - LeetCode #523 ⭐
+   - **Concept:** Prefix sum modulo k with hash map
+   - **Complexity:** O(n) time, O(min(n,k)) space
+   - **Why Medium:** Modulo arithmetic, edge case handling (k=0, multiple of k)
 
-### Brute Force Code Walkthrough / Variable Trace:
-For `nums = [1,2,3,4]`, query `sumRange(1, 3)`:
-
-| i | nums[i] | sum |
-| - | ------- | --- |
-| 1 | 2       | 2   |
-| 2 | 3       | 5   |
-| 3 | 4       | 9   |
-
-### Optimized Solution from Canonical Skeleton:
-```csharp
-class NumArray 
-{
-    private int[] prefix;
-    
-    public NumArray(int[] nums) 
-    {
-        prefix = new int[nums.Length + 1];
-        for (int i = 0; i < nums.Length; i++)
-        {
-            prefix[i + 1] = prefix[i] + nums[i];
-        }
-    }
-    
-    public int SumRange(int left, int right) 
-    {
-        return prefix[right + 1] - prefix[left];
-    }
-}
-```
-
-### Explanation of Pruning:
-- Instead of computing sum for each query, precompute all cumulative sums
-- Use difference between two prefix values to get range sum
-- Transforms O(n) per query to O(1) per query
-
-### Optimized Solution Code Walkthrough / Variable Trace:
-**Build phase** for `nums = [1,2,3,4]`:
-
-| i | nums[i] | prefix[i+1] |
-| - | ------- | ----------- |
-| 0 | 1       | 1           |
-| 1 | 2       | 3           |
-| 2 | 3       | 6           |
-| 3 | 4       | 10          |
-
-**Query phase** for `sumRange(1, 3)`:
-- `prefix[4] - prefix[1] = 10 - 1 = 9`
-
-### Big-O Analysis:
-- **Brute Force:** O(n) per query
-- **Optimized:** O(n) preprocessing, O(1) per query
-- **Space Complexity:** O(n) for prefix array
-
-</details>
-
-<details>
-<summary><b>Variant #2: Subarray Sum Equals K</b></summary>
-
-## Variant #2: Subarray Sum Equals K
-
-### Input/Output:
-- Input: `nums = [1,2,1]`, `k = 3`
-- Output: `2` (two subarrays: [1,2] and [2,1])
-
-### Full State Space:
-All contiguous subarrays:
-```
-[1]: sum=1,
-[1,2]: sum=3,
-[1,2,1]: sum=4,
-[2]: sum=2,
-[2,1]: sum=3,
-[1]: sum=1
-```
-```csharp
-void GenerateAllSubarrays(int[] nums, int k)
-{
-    var allSubarrays = new List<(int start, int end, int sum)>();
-    
-    for (int start = 0; start < nums.Length; start++)
-    {
-        int sum = 0;
-        for (int end = start; end < nums.Length; end++)
-        {
-            sum += nums[end];
-            allSubarrays.Add((start, end, sum));
-        }
-    }
-}
-```
-
-### Expected/Pruned State Space:
-Use prefix sum frequency map:
-```
-For each position, check if (prefixSum - k) exists in map
-If prefix[j] - prefix[i] = k, then subarray (i+1, j) is valid
-```
-```csharp
-void FindValidSubarrays(int[] nums, int k)
-{
-    var map = new Dictionary<int, int>();
-    map[0] = 1;
-    int prefixSum = 0;
-    var validSubarrays = new List<(int count)>();
-    
-    for (int end = 0; end < nums.Length; end++)
-    {
-        prefixSum += nums[end];
-        int need = prefixSum - k;
-        
-        if (map.ContainsKey(need))
-        {
-            validSubarrays.Add((map[need]));
-        }
-        
-        map[prefixSum] = map.GetValueOrDefault(prefixSum, 0) + 1;
-    }
-}
-```
-
-### State Space Leading to Output:
-Two subarrays with sum=3 → count = 2
-
-### Brute Force Canonical Skeleton:
-```csharp
-int SubarraySumBruteForce(int[] nums, int k)
-{
-    int count = 0;
-    
-    for (int start = 0; start < nums.Length; start++)
-    {
-        int sum = 0;
-        for (int end = start; end < nums.Length; end++)
-        {
-            sum += nums[end];
-            if (sum == k)
-            {
-                count++;
-            }
-        }
-    }
-    
-    return count;
-}
-```
-
-### Brute Force Code Walkthrough / Variable Trace:
-For `nums = [1,2,1]`, `k = 3`:
-
-| start | end | sum | k? | count |
-| ----- | --- | --- | -- | ----- |
-| 0     | 0   | 1   | No | 0     |
-| 0     | 1   | 3   | Yes| 1     |
-| 0     | 2   | 4   | No | 1     |
-| 1     | 1   | 2   | No | 1     |
-| 1     | 2   | 3   | Yes| 2     |
-| 2     | 2   | 1   | No | 2     |
-
-### Optimized Solution from Canonical Skeleton:
-```csharp
-int SubarraySum(int[] nums, int k)
-{
-    int count = 0, prefixSum = 0;
-    var map = new Dictionary<int, int>();
-    map[0] = 1; // Handle subarrays starting at index 0
-
-    foreach (var num in nums)
-    {
-        prefixSum += num;
-        
-        // Check if there's a prefix sum that makes current subarray sum to k
-        if (map.ContainsKey(prefixSum - k))
-        {
-            count += map[prefixSum - k];
-        }
-        
-        // Add current prefix sum to map
-        map[prefixSum] = map.GetValueOrDefault(prefixSum, 0) + 1;
-    }
-    
-    return count;
-}
-```
-
-### Explanation of Pruning:
-- Instead of checking all O(n²) subarrays, use prefix sum with hash map
-- For each position, check if (prefixSum - k) has occurred before
-- If yes, those positions form valid subarrays ending at current position
-- `map[0] = 1` handles subarrays starting from index 0
-
-### Optimized Solution Code Walkthrough / Variable Trace:
-For `nums = [1,2,1]`, `k = 3`:
-
-| idx | num | prefixSum | prefixSum-k | found? | count | map                        |
-| --- | --- | --------- | ----------- | ------ | ----- | -------------------------- |
-| 0   | 1   | 1         | -2          | No     | 0     | {0:1, 1:1}                 |
-| 1   | 2   | 3         | 0           | Yes    | 1     | {0:1, 1:1, 3:1}            |
-| 2   | 1   | 4         | 1           | Yes    | 2     | {0:1, 1:1, 3:1, 4:1}       |
-
-### Big-O Analysis:
-- **Brute Force:** O(n²) → check all subarrays
-- **Optimized:** O(n) → single pass with hash map
-- **Space Complexity:** O(n) → store prefix sums in map
-
-</details>
-
-# Key Pattern Takeaways
-- Prefix sum converts range problems into **difference lookups**.
-- Hash map tracks *how many times* a prefix sum has occurred.
-- Always initialize `map[0] = 1` to handle subarrays starting at index 0.
+### Practice Progression
+1. Start with **Range Sum Query** (#1) - understand basic prefix sum
+2. Practice **Find Pivot Index** (#2) - apply prefix sum for balance point
+3. Tackle **Product Except Self** (#3) - prefix products without division
+4. Master **Continuous Subarray Sum** (#4) - prefix sum with modulo and hash map
 
 ---
 
-**End of Prefix Sum / Running Sum Pattern**
+## Key Pattern Takeaways
+
+### Core Concepts
+- **Prefix sum converts range problems into difference lookups**: `sum(l, r) = prefix[r+1] - prefix[l]`
+- **Hash map tracks frequency**: Count how many times a prefix sum (or its remainder) has occurred
+- **Initialize with base case**: Always set `map[0] = 1` to handle subarrays starting at index 0
+
+### When to Use This Pattern
+✅ **Use when you see:**
+- "Subarray sum equals K"
+- "Range sum queries"
+- "Count subarrays with property"
+- "Product except self"
+- "Continuous subarray sum"
+
+❌ **Don't use when:**
+- Need to find maximum/minimum subarray (use Kadane's or Sliding Window)
+- Array can be modified (consider Segment Tree or Binary Indexed Tree)
+- Need to handle updates efficiently (static prefix sum won't work)
+
+### Common Variations
+
+**1. Simple Prefix Sum (Array)**
+```csharp
+int[] prefix = new int[n + 1];
+for (int i = 0; i < n; i++) {
+    prefix[i + 1] = prefix[i] + nums[i];
+}
+// Range sum: prefix[r+1] - prefix[l]
+```
+
+**2. Prefix Sum with Hash Map (Count Subarrays)**
+```csharp
+var map = new Dictionary<int, int> { {0, 1} };
+int prefixSum = 0, count = 0;
+
+foreach (var num in nums) {
+    prefixSum += num;
+    if (map.ContainsKey(prefixSum - k)) {
+        count += map[prefixSum - k];
+    }
+    map[prefixSum] = map.GetValueOrDefault(prefixSum, 0) + 1;
+}
+```
+
+**3. Prefix Product**
+```csharp
+int[] prefix = new int[n];
+prefix[0] = nums[0];
+for (int i = 1; i < n; i++) {
+    prefix[i] = prefix[i - 1] * nums[i];
+}
+```
+
+**4. Prefix Sum with Modulo**
+```csharp
+var map = new Dictionary<int, int> { {0, -1} };
+int prefixSum = 0;
+
+for (int i = 0; i < n; i++) {
+    prefixSum += nums[i];
+    int remainder = prefixSum % k;
+    if (remainder < 0) remainder += k; // Handle negatives
+    
+    if (map.ContainsKey(remainder)) {
+        // Found subarray
+    }
+    map[remainder] = i;
+}
+```
+
+---
+
+**Note:** The embedded variant content has been moved to individual files for better organization. Each file contains:
+1. State Space Derivation (cardinality, structure, generation)
+2. Brute Force with Value Tracing
+3. Pruning Analysis (can we do better?)
+4. Optimal Solution with Skeleton Transformation
 
